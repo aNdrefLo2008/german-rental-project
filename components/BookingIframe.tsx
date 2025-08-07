@@ -8,14 +8,25 @@ interface BookingIframeProps {
   url: string
 }
 
-// Keep track of which iframes have been initialized
-const initializedIframes: Record<string, boolean> = {}
+declare global {
+  interface Window {
+    BookingToolIframe?: {
+      initialize: (options: {
+        url: string
+        baseUrl: string
+        target: string
+      }) => void
+    }
+  }
+}
 
 export function BookingIframe({id, url}: BookingIframeProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 
+  // Keep track of which iframes have been initialized
+  const initializedIframes: Record<string, boolean> = {}
+
   useEffect(() => {
-    // Load script only once
     if (!document.querySelector("#smoobu-script")) {
       const script = document.createElement("script")
       script.id = "smoobu-script"
@@ -25,11 +36,11 @@ export function BookingIframe({id, url}: BookingIframeProps) {
 
       script.onload = () => {
         if (
-          (window as any).BookingToolIframe &&
+          window.BookingToolIframe &&
           containerRef.current &&
           !initializedIframes[id]
         ) {
-          ;(window as any).BookingToolIframe.initialize({
+          window.BookingToolIframe.initialize({
             url,
             baseUrl: "https://login.smoobu.com",
             target: `#${id}`
@@ -38,13 +49,12 @@ export function BookingIframe({id, url}: BookingIframeProps) {
         }
       }
     } else {
-      // Initialize only once per iframe id
       if (
-        (window as any).BookingToolIframe &&
+        window.BookingToolIframe &&
         containerRef.current &&
         !initializedIframes[id]
       ) {
-        ;(window as any).BookingToolIframe.initialize({
+        window.BookingToolIframe.initialize({
           url,
           baseUrl: "https://login.smoobu.com",
           target: `#${id}`
@@ -54,5 +64,5 @@ export function BookingIframe({id, url}: BookingIframeProps) {
     }
   }, [id, url])
 
-  return <div id={id} ref={containerRef}></div>
+  return <div ref={containerRef} id={id}></div>
 }

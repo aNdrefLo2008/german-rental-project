@@ -41,7 +41,7 @@ export function Contact() {
             <CardContent className='text-center'>
               <p className='text-muted-foreground'>info@gera-apartments.de</p>
               <p className='text-sm text-muted-foreground mt-1'>
-                {"We'll respond within 24h"}
+                We&apos;ll respond within 24h
               </p>
             </CardContent>
           </Card>
