@@ -10,8 +10,8 @@ export function Contact() {
         <div className='text-center mb-12'>
           <h2 className='text-3xl md:text-4xl font-bold mb-4'>Get in Touch</h2>
           <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-            Ready to book your stay or have questions? We're here to help make
-            your visit to Gera perfect.
+            Ready to book your stay or have questions? We&apos;re here to help
+            make your visit to Gera perfect
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export function Contact() {
             <CardContent className='text-center'>
               <p className='text-muted-foreground'>info@gera-apartments.de</p>
               <p className='text-sm text-muted-foreground mt-1'>
-                We'll respond within 24h
+                {"We'll respond within 24h"}
               </p>
             </CardContent>
           </Card>

@@ -39,8 +39,8 @@ export function About() {
             Why Choose Our Apartments
           </h2>
           <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-            We've been providing exceptional short-term rental experiences in
-            Gera for years, ensuring every guest feels at home.
+            We&apos;ve been providing exceptional short-term rental experiences
+            in Gera for years, ensuring every guest feels at home.
           </p>
         </div>
 
@@ -70,15 +70,15 @@ export function About() {
               </h3>
               <p className='text-muted-foreground mb-6'>
                 Our 8 carefully curated apartments offer the perfect blend of
-                comfort, convenience, and local charm. Whether you're visiting
-                for business or pleasure, staying for a few days or several
-                weeks, we have the perfect space for you.
+                comfort, convenience, and local charm. Whether you&apos;re
+                visiting for business or pleasure, staying for a few days or
+                several weeks, we have the perfect space for you.
               </p>
               <p className='text-muted-foreground'>
                 Located in prime areas of Gera, each apartment is fully
                 furnished and equipped with everything you need for a
-                comfortable stay. From modern amenities to local insights, we're
-                here to make your visit memorable.
+                comfortable stay. From modern amenities to local insights,
+                we&apos;re here to make your visit memorable.
               </p>
             </div>
             <div className='aspect-[4/3] rounded-xl overflow-hidden'>
