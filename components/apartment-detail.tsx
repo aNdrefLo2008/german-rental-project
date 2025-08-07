@@ -80,8 +80,6 @@ const bookingIframes: Record<string, {id: string; url: string}> = {
 }
 
 export function ApartmentDetail({apartment}: ApartmentDetailProps) {
-  console.log(apartment)
-
   const [currentImage, setCurrentImage] = useState(0)
   const iframe = bookingIframes[apartment._id] ?? bookingIframes["any"]
 
