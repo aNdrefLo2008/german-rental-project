@@ -6,12 +6,15 @@ import {ApartmentDetail} from "@/components/apartment-detail"
 import type {Metadata} from "next"
 
 interface Props {
-  params: {slug: string}
-  searchParams?: {[key: string]: string | string[] | undefined}
+  params: Promise<{slug: string}>
+  searchParams?: Promise<{[key: string]: string | string[] | undefined}>
 }
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
-  const apartment = await client.fetch(apartmentQuery, {slug: params.slug})
+  const resolvedParams = await params
+  const apartment = await client.fetch(apartmentQuery, {
+    slug: resolvedParams.slug
+  })
 
   return {
     title: apartment?.title ?? "Apartment Detail"
@@ -19,9 +22,13 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 }
 
 export default async function ApartmentPage({params}: Props) {
-  if (!params.slug) throw new Error("Missing slug param!")
+  const resolvedParams = await params
 
-  const apartment = await client.fetch(apartmentQuery, {slug: params.slug})
+  if (!resolvedParams.slug) throw new Error("Missing slug param!")
+
+  const apartment = await client.fetch(apartmentQuery, {
+    slug: resolvedParams.slug
+  })
 
   if (!apartment) {
     return <div>Apartment not found</div>
