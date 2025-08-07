@@ -15,7 +15,8 @@ import {
   Car,
   Coffee,
   Tv,
-  Utensils
+  Utensils,
+  LucideIcon
 } from "lucide-react"
 import {BookingIframe} from "./BookingIframe"
 
@@ -35,7 +36,7 @@ interface ApartmentDetailProps {
   }
 }
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   "Free WiFi": Wifi,
   "Free Parking": Car,
   "Coffee Machine": Coffee,
