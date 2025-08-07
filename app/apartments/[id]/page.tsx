@@ -1,12 +1,8 @@
-import { ApartmentDetail } from "@/components/apartment-detail"
+/** @format */
 
-interface ApartmentPageProps {
-  params: {
-    id: string
-  }
-}
+import {ApartmentDetail} from "@/components/apartment-detail"
 
-export default function ApartmentPage({ params }: ApartmentPageProps) {
+export default async function ApartmentPage({params}: {params: {id: string}}) {
   return (
     <main>
       <ApartmentDetail apartmentId={params.id} />
