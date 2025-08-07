@@ -149,7 +149,9 @@ export function ApartmentGrid() {
 
           <CardFooter className='p-6 pt-0'>
             <Button asChild className='w-full'>
-              <Link href={`/apartments/${apartment.id}`}>View Details</Link>
+              <Link href={`/apartments/modern-city-apartment`}>
+                View Details
+              </Link>
             </Button>
           </CardFooter>
         </Card>

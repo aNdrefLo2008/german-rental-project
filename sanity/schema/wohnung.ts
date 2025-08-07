@@ -15,5 +15,10 @@ export default defineType({
     defineField({ name: 'lageKarte', title: 'Google Maps Embed Link', type: 'url' }),
     defineField({ name: 'faq', title: 'FAQ zur Wohnung', type: 'array', of: [{ type: 'faq' }] }),
     defineField({ name: 'metaDescription', title: 'Meta Description (SEO)', type: 'string' }),
+    defineField({ name: "guests", title: "Gäste", type: "number" }),
+    defineField({ name: "bedrooms", title: "Schlafzimmer", type: "number" }),
+    defineField({ name: "bathrooms", title: "Badezimmer", type: "number" }),
+    defineField({ name: "size", title: "Größe (m²)", type: "number" }),
+    defineField({ name: 'features', title: 'Features', type: 'array', of: [{ type: 'string' }] }),
   ],
 })
