@@ -100,12 +100,27 @@ import {allApartmentsQuery} from "@/sanity/lib/queries"
 ]
 */
 
+interface ApartmentDetailProps {
+  _id: string
+  title: string
+  preisProNacht: string
+  guests: number
+  bedrooms: number
+  bathrooms: number
+  size: string
+  slug: string
+  beschreibung: string
+  images: {asset: {url: string}}[]
+  ausstattung: string[]
+  features: string[]
+}
+
 export async function ApartmentGrid() {
   const apartments = await client.fetch(allApartmentsQuery)
 
   return (
     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-      {apartments.map((apartment: any) => (
+      {apartments.map((apartment: ApartmentDetailProps) => (
         <Card
           key={apartment._id}
           className='overflow-hidden hover:shadow-lg transition-shadow'>
@@ -125,7 +140,7 @@ export async function ApartmentGrid() {
           <CardContent className='px-6'>
             <h3 className='text-xl font-semibold mb-2'>{apartment.title}</h3>
             <p className='text-muted-foreground mb-4'>
-              {apartment.description}
+              {apartment.beschreibung}
             </p>
 
             <div className='flex items-center space-x-4 mb-4 text-sm text-muted-foreground'>
