@@ -1,9 +1,29 @@
 /** @format */
 
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card"
+import {client} from "@/sanity/lib/client"
+import {settingsQuery} from "@/sanity/lib/queries"
 import {Mail, Phone, MapPin, Clock, MessageCircle} from "lucide-react"
 
-export function ContactInfo() {
+export type NavigationItem = {
+  title: string
+  url: string
+}
+
+export type Settings = {
+  siteTitle: string
+  logoUrl?: string
+  kontaktTelefon: string
+  kontaktEmail: string
+  adresse: string
+  whatsAppLink: string
+  footerText: string
+  navigation: NavigationItem[]
+}
+
+export async function ContactInfo() {
+  const settings: Settings = await client.fetch(settingsQuery)
+
   return (
     <div className='space-y-6'>
       <Card className='py-6'>
@@ -15,7 +35,7 @@ export function ContactInfo() {
             <Phone className='h-5 w-5 text-primary' />
             <div>
               <p className='font-medium'>Phone</p>
-              <p className='text-muted-foreground'>+49 XXX XXXXXXX</p>
+              <p className='text-muted-foreground'>{settings.kontaktTelefon}</p>
             </div>
           </div>
 
@@ -23,7 +43,7 @@ export function ContactInfo() {
             <Mail className='h-5 w-5 text-primary' />
             <div>
               <p className='font-medium'>Email</p>
-              <p className='text-muted-foreground'>info@gera-apartments.de</p>
+              <p className='text-muted-foreground'>{settings.kontaktEmail}</p>
             </div>
           </div>
 

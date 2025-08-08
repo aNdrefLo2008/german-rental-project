@@ -43,3 +43,41 @@ export const upsellQuery = `
     ctaLink
   }
 `
+
+export const settingsQuery = `
+  *[_type == "settings"][0]{
+    siteTitle,
+    "logoUrl": logo.asset->url,
+    kontaktTelefon,
+    kontaktEmail,
+    adresse,
+    whatsAppLink,
+    footerText,
+    navigation[]{
+      title,
+      url
+    }
+  }
+`
+
+export const blogQuery = `
+  *[_type == "blogPost"] | order(veroeffentlichtAm desc) {
+      _id,
+      title,
+      "slug": slug.current,
+      "bild": bild.asset->url,
+      inhalt,
+      veroeffentlichtAm
+    }
+`
+
+export const singleBlogPostQuery = `
+  *[_type == "blogPost" && slug.current == $slug][0]{
+    _id,
+    title,
+    "slug": slug.current,
+    "bild": bild.asset->url,
+    inhalt,
+    veroeffentlichtAm
+  }
+`
