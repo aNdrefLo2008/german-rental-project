@@ -4,12 +4,27 @@ import {client} from "@/sanity/lib/client"
 import {blogQuery} from "@/sanity/lib/queries"
 import Link from "next/link"
 
+export type PortableTextSpan = {
+  _key: string
+  _type: "span"
+  text: string
+  marks?: string[]
+}
+
+export type PortableTextBlock = {
+  _key: string
+  _type: "block"
+  children: PortableTextSpan[]
+  markDefs?: unknown[]
+  style?: string
+}
+
 export interface BlogPost {
   _id: string
   title: string
   slug: string
   bild: string
-  inhalt: any // Portable Text blocks
+  inhalt: PortableTextBlock[] // Portable Text blocks
   veroeffentlichtAm: string
 }
 
