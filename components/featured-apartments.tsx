@@ -114,7 +114,7 @@ export async function FeaturedApartments() {
                   </div>
 
                   <div className='flex flex-wrap gap-2'>
-                    {apartment.features.slice(0, 3).map((feature: any) => (
+                    {apartment.features.slice(0, 3).map((feature: string) => (
                       <Badge
                         key={feature}
                         variant='secondary'
