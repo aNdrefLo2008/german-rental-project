@@ -116,7 +116,8 @@ interface ApartmentDetailProps {
 }
 
 export async function ApartmentGrid() {
-  const apartments = await client.fetch(allApartmentsQuery)
+  const apartments: ApartmentDetailProps[] =
+    await client.fetch(allApartmentsQuery)
 
   return (
     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>

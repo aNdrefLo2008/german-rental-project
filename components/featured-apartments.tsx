@@ -57,7 +57,8 @@ interface ApartmentDetailProps {
 }
 
 export async function FeaturedApartments() {
-  const featuredApartments = await client.fetch(allApartmentsQuery)
+  const featuredApartments: ApartmentDetailProps[] =
+    await client.fetch(allApartmentsQuery)
 
   return (
     <section className='py-16 bg-muted/30'>
