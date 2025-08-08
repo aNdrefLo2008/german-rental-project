@@ -4,7 +4,6 @@ import {Card, CardContent} from "@/components/ui/card"
 import {client} from "@/sanity/lib/client"
 import {upsellQuery} from "@/sanity/lib/queries"
 import {Shield, Clock, Heart, Award} from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 
 const features = [
