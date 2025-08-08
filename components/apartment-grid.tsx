@@ -5,8 +5,10 @@ import {Button} from "@/components/ui/button"
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
 import {Users, Bed, Bath} from "lucide-react"
+import {client} from "@/sanity/lib/client"
+import {allApartmentsQuery} from "@/sanity/lib/queries"
 
-const apartments = [
+/* const apartments = [
   {
     id: "1",
     name: "Modern City Center Apartment",
@@ -96,29 +98,32 @@ const apartments = [
     description: "Spacious family suite with all amenities."
   }
 ]
+*/
 
-export function ApartmentGrid() {
+export async function ApartmentGrid() {
+  const apartments = await client.fetch(allApartmentsQuery)
+
   return (
     <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-      {apartments.map((apartment) => (
+      {apartments.map((apartment: any) => (
         <Card
-          key={apartment.id}
+          key={apartment._id}
           className='overflow-hidden hover:shadow-lg transition-shadow'>
           <CardHeader className='p-0'>
-            <div className='aspect-[16/10] relative'>
+            <div className='aspect-[20/10] relative'>
               <img
-                src={apartment.image || "/placeholder.svg"}
-                alt={apartment.name}
+                src={apartment.images?.[0]?.asset?.url || "/placeholder.svg"}
+                alt={apartment.title}
                 className='w-full h-full object-cover'
               />
               <Badge className='absolute top-4 left-4 bg-background/90 text-foreground'>
-                {apartment.price}/night
+                €{apartment.preisProNacht}/night
               </Badge>
             </div>
           </CardHeader>
 
           <CardContent className='px-6'>
-            <h3 className='text-xl font-semibold mb-2'>{apartment.name}</h3>
+            <h3 className='text-xl font-semibold mb-2'>{apartment.title}</h3>
             <p className='text-muted-foreground mb-4'>
               {apartment.description}
             </p>
@@ -139,7 +144,7 @@ export function ApartmentGrid() {
             </div>
 
             <div className='flex flex-wrap gap-2'>
-              {apartment.features.map((feature) => (
+              {apartment.features?.slice(0, 3).map((feature: string) => (
                 <Badge key={feature} variant='secondary' className='text-xs'>
                   {feature}
                 </Badge>
@@ -149,9 +154,7 @@ export function ApartmentGrid() {
 
           <CardFooter className='p-6 pt-0'>
             <Button asChild className='w-full'>
-              <Link href={`/apartments/modern-city-apartment`}>
-                View Details
-              </Link>
+              <Link href={`/apartments/${apartment.slug}`}>View Details</Link>
             </Button>
           </CardFooter>
         </Card>

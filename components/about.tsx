@@ -1,7 +1,11 @@
 /** @format */
 
 import {Card, CardContent} from "@/components/ui/card"
+import {client} from "@/sanity/lib/client"
+import {upsellQuery} from "@/sanity/lib/queries"
 import {Shield, Clock, Heart, Award} from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 const features = [
   {
@@ -30,7 +34,11 @@ const features = [
   }
 ]
 
-export function About() {
+export async function About() {
+  const upsell = await client.fetch(upsellQuery)
+
+  console.log(upsell)
+
   return (
     <section className='py-16'>
       <div className='container mx-auto px-4'>
@@ -90,6 +98,38 @@ export function About() {
             </div>
           </div>
         </div>
+
+        {upsell && (
+          <div className='rounded-2xl p-8 md:p-12 mt-12 shadow-xl'>
+            <div className='flex lg:flex-row flex-col gap-8 items-center justify-center'>
+              <div className='flex flex-col items-start'>
+                <h3 className='text-2xl md:text-3xl font-bold mb-4'>
+                  {upsell.title}
+                </h3>
+                <p className='text-muted-foreground mb-4 lg:max-w-3xl'>
+                  {upsell.beschreibung}
+                </p>
+                {upsell.preis && (
+                  <p className='text-lg font-semibold mb-6'>{upsell.preis}</p>
+                )}
+                <Link
+                  href={upsell.ctaLink || "/"}
+                  className='bg-primary text-white px-6 py-3 rounded-lg inline-block'>
+                  Jetzt buchen
+                </Link>
+              </div>
+              {upsell.imageUrl && (
+                <div className='aspect-[4/3] rounded-xl overflow-hidden'>
+                  <img
+                    src={upsell.imageUrl}
+                    alt={upsell.title}
+                    className='w-full h-full object-cover shadow-lg'
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

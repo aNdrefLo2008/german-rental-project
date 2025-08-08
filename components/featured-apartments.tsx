@@ -5,8 +5,10 @@ import {Button} from "@/components/ui/button"
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
 import {MapPin, Users} from "lucide-react"
+import {client} from "@/sanity/lib/client"
+import {allApartmentsQuery} from "@/sanity/lib/queries"
 
-const featuredApartments = [
+/* const featuredApartments = [
   {
     id: "1",
     name: "Modern City Center Apartment",
@@ -37,9 +39,11 @@ const featuredApartments = [
     description:
       "Ideal for business travelers with dedicated workspace and quiet location."
   }
-]
+] */
 
-export function FeaturedApartments() {
+export async function FeaturedApartments() {
+  const featuredApartments = await client.fetch(allApartmentsQuery)
+
   return (
     <section className='py-16 bg-muted/30'>
       <div className='container mx-auto px-4'>
@@ -54,27 +58,31 @@ export function FeaturedApartments() {
         </div>
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12'>
-          {featuredApartments.map((apartment) => (
+          {featuredApartments.slice(0, 3).map((apartment: any) => (
             <Card
-              key={apartment.id}
+              key={apartment._id}
               className='overflow-hidden hover:shadow-lg transition-shadow'>
               <CardHeader className='p-0'>
-                <div className='aspect-[16/10] relative'>
+                <div className='aspect-[20/10] relative'>
                   <img
-                    src={apartment.image || "/placeholder.svg"}
-                    alt={apartment.name}
+                    src={
+                      apartment.images?.[0]?.asset?.url || "/placeholder.svg"
+                    }
+                    alt={apartment.title}
                     className='w-full h-full object-cover'
                   />
                   <Badge className='absolute top-4 left-4 bg-background/90 text-foreground'>
-                    {apartment.price}/night
+                    €{apartment.preisProNacht}/night
                   </Badge>
                 </div>
               </CardHeader>
 
               <CardContent className='px-6'>
-                <h3 className='text-xl font-semibold mb-2'>{apartment.name}</h3>
+                <h3 className='text-xl font-semibold mb-2'>
+                  {apartment.title}
+                </h3>
                 <p className='text-muted-foreground mb-4'>
-                  {apartment.description}
+                  {apartment.beschreibung}
                 </p>
 
                 <div className='flex items-center space-x-4 mb-4'>
@@ -89,7 +97,7 @@ export function FeaturedApartments() {
                 </div>
 
                 <div className='flex flex-wrap gap-2'>
-                  {apartment.features.map((feature) => (
+                  {apartment.features.slice(0, 3).map((feature: any) => (
                     <Badge
                       key={feature}
                       variant='secondary'
@@ -102,7 +110,9 @@ export function FeaturedApartments() {
 
               <CardFooter className='p-6 pt-0'>
                 <Button asChild className='w-full'>
-                  <Link href={`/apartments/${apartment.id}`}>View Details</Link>
+                  <Link href={`/apartments/${apartment.slug}`}>
+                    View Details
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>

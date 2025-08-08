@@ -121,7 +121,7 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
 
           <div className='text-right'>
             <div className='text-3xl font-bold text-primary'>
-              {apartment.preisProNacht}
+              €{apartment.preisProNacht}
             </div>
             <div className='text-sm text-muted-foreground'>per night</div>
           </div>
