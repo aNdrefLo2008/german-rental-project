@@ -12,13 +12,13 @@ import navItem from './navItem'
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     wohnung,
-    faq,
     settings,
     review,
     trustElement,
     upsell,
     blogPost,
     legalPage,
-    navItem
+    navItem,
+    faq
   ]
 }

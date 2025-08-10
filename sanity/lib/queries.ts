@@ -81,3 +81,29 @@ export const singleBlogPostQuery = `
     veroeffentlichtAm
   }
 `
+export const reviewsQuery = `
+  *[_type == "review"] | order(_createdAt desc) {
+    _id,
+    name,
+    bewertung,
+    sterne,
+    quelle,
+    "bildUrl": bild.asset->url
+  }
+`
+
+export const faqQuery = `
+  *[_type == "faq"] | order(_createdAt asc) {
+    _id,
+    frage,
+    antwort
+  }
+`
+
+// queries.ts
+export const legalPageQuery = `
+  *[_type == "legalPage"][0]{
+    title,
+    inhalt
+  }
+`

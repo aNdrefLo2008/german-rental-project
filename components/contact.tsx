@@ -59,7 +59,9 @@ export async function Contact() {
               <CardTitle className='text-lg -mb-4'>Email</CardTitle>
             </CardHeader>
             <CardContent className='text-center'>
-              <p className='text-muted-foreground'>{settings.kontaktEmail}</p>
+              <p className='text-muted-foreground  break-all'>
+                {settings.kontaktEmail}
+              </p>
               <p className='text-sm text-muted-foreground mt-1'>
                 We&apos;ll respond within 24h
               </p>

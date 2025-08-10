@@ -3,6 +3,8 @@
 import Link from "next/link"
 import {Button} from "@/components/ui/button"
 import {MapPin, Star, Users} from "lucide-react"
+import heroExampleImg from "../public/Hero-Example.jpg"
+import Image from "next/image"
 
 export function Hero() {
   return (
@@ -49,16 +51,26 @@ export function Hero() {
 
           <div className='relative'>
             <div className='aspect-[4/3] rounded-2xl overflow-hidden bg-muted'>
-              <img
-                src='/placeholder.svg?height=600&width=800'
+              <Image
+                src={heroExampleImg || "/placeholder.svg?height=600&width=800"}
                 alt='Modern apartment interior'
                 className='w-full h-full object-cover'
               />
             </div>
-            <div className='absolute -bottom-6 -left-6 bg-background rounded-xl p-4 shadow-lg border'>
-              <div className='text-2xl font-bold text-primary'>8</div>
-              <div className='text-sm text-muted-foreground'>
+            <div className='absolute -bottom-4 sm:-bottom-6 -left-3 sm:-left-6 backdrop-blur-3xl rounded-xl p-4 shadow-lg'>
+              <div className='text-xl sm:text-2xl font-bold text-primary'>
+                8
+              </div>
+              <div className='text-xs sm:text-sm text-white'>
                 Apartments Available
+              </div>
+            </div>
+            <div className='absolute sm:-top-6 -top-3 sm:-right-6 -right-3 backdrop-blur-3xl rounded-xl p-4 shadow-lg'>
+              <div className='text-xl sm:text-2xl font-bold text-primary'>
+                500+
+              </div>
+              <div className='text-xs sm:text-sm text-white'>
+                Guests Every Year
               </div>
             </div>
           </div>

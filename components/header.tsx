@@ -41,7 +41,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild>
-              <Link href='/contact'>Book Now</Link>
+              <Link href='/apartments'>Book Now</Link>
             </Button>
           </nav>
 
@@ -65,7 +65,7 @@ export function Header() {
                   </Link>
                 ))}
                 <Button asChild className='w-full h-10'>
-                  <Link href='/contact' onClick={() => setIsOpen(false)}>
+                  <Link href='/apartments' onClick={() => setIsOpen(false)}>
                     Book Now
                   </Link>
                 </Button>

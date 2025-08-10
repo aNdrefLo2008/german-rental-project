@@ -1,7 +1,10 @@
-import { Hero } from "@/components/hero"
-import { FeaturedApartments } from "@/components/featured-apartments"
-import { About } from "@/components/about"
-import { Contact } from "@/components/contact"
+/** @format */
+
+import {Hero} from "@/components/hero"
+import {FeaturedApartments} from "@/components/featured-apartments"
+import {About} from "@/components/about"
+import {Contact} from "@/components/contact"
+import FAQSection from "../components/FAQ"
 
 export default function HomePage() {
   return (
@@ -10,6 +13,7 @@ export default function HomePage() {
       <FeaturedApartments />
       <About />
       <Contact />
+      <FAQSection />
     </main>
   )
 }
