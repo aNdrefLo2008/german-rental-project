@@ -1,7 +1,5 @@
 /** @format */
 
-import Image from "next/image"
-
 type Review = {
   _id: string
   name: string
