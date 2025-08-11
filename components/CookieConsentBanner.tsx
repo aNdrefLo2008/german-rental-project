@@ -10,8 +10,6 @@ import {motion, AnimatePresence} from "framer-motion"
 export function CookieConsentBanner() {
   const [show, setShow] = useState(false)
 
-  localStorage.removeItem("cookie-consent")
-
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent")
     if (!consent) setShow(true)
