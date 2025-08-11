@@ -7,6 +7,8 @@ import "./globals.css"
 import {Header} from "@/components/header"
 import {Footer} from "@/components/footer"
 import {WhatsAppButton} from "@/components/whatsapp-button"
+import {StickyBookingBar} from "@/components/StickyBookingBar"
+import {CookieConsentBanner} from "@/components/CookieConsentBanner"
 
 const inter = Inter({subsets: ["latin"]})
 
@@ -24,6 +26,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={inter.className}>
         <Header />
         {children}
+        <CookieConsentBanner />
+        <StickyBookingBar />
         <Footer />
         <WhatsAppButton />
       </body>
