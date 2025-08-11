@@ -57,19 +57,34 @@ export function Hero() {
                 className='w-full h-full object-cover'
               />
             </div>
-            <div className='absolute -bottom-4 sm:-bottom-6 -left-3 sm:-left-6 backdrop-blur-3xl rounded-xl p-4 shadow-lg'>
+            <div
+              className='absolute -bottom-4 sm:-bottom-6 -left-3 sm:-left-6
+                rounded-xl p-4 shadow-lg
+                bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+              style={{
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)"
+              }}>
               <div className='text-xl sm:text-2xl font-bold text-primary'>
                 8
               </div>
-              <div className='text-xs sm:text-sm text-white'>
+              <div className='text-xs sm:text-sm text-gray-700'>
                 Apartments Available
               </div>
             </div>
-            <div className='absolute sm:-top-6 -top-3 sm:-right-6 -right-3 backdrop-blur-3xl rounded-xl p-4 shadow-lg'>
+
+            <div
+              className='absolute sm:-top-6 -top-3 sm:-right-6 -right-3
+                rounded-xl p-4 shadow-lg
+                bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60'
+              style={{
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)"
+              }}>
               <div className='text-xl sm:text-2xl font-bold text-primary'>
                 500+
               </div>
-              <div className='text-xs sm:text-sm text-white'>
+              <div className='text-xs sm:text-sm text-gray-700'>
                 Guests Every Year
               </div>
             </div>
