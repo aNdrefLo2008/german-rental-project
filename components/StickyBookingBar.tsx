@@ -43,7 +43,7 @@ export function StickyBookingBar() {
     <div
       ref={ref}
       className={`
-      fixed sm:bottom-4 bottom-12 left-1/2 transform -translate-x-1/2
+      fixed bottom-4 left-1/2 transform -translate-x-1/2
       backdrop-blur
       shadow-lg
       rounded-full
