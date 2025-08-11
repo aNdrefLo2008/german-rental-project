@@ -10,7 +10,9 @@ import {MessageCircle} from "lucide-react"
 import {motion, AnimatePresence} from "framer-motion"
 
 export function WhatsAppButton() {
-  const [whatsAppLink, setWhatsAppLink] = useState<string | null>(null)
+  const [whatsAppLink, setWhatsAppLink] = useState<string | null>(
+    "https://wa.link/z1sfgp"
+  )
 
   useEffect(() => {
     async function fetchSettings() {

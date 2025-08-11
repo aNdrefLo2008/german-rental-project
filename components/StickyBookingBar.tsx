@@ -55,8 +55,10 @@ export function StickyBookingBar() {
       style={{backgroundColor: "rgba(255, 255, 255, 0.7)"}} // semi-transparent white bg for blur effect
     >
       <ShoppingCart
-        className={`w-6 h-6 ${isBgDark ? "text-white" : "text-gray-700"}`}
+        className={`${isBgDark ? "text-white" : "text-gray-700"}`}
+        style={{width: 24, height: 24, minWidth: 24, minHeight: 24}}
       />
+
       <span
         className={`font-medium whitespace-nowrap ${
           isBgDark ? "text-white" : "text-gray-700"
