@@ -1,5 +1,7 @@
 /* @format */
 
+import Link from "next/link"
+
 export function CTASection() {
   return (
     <section className='overflow-hidden relative shadow-xl rounded-3xl py-16 md:py-24 px-8 md:px-12 text-center max-w-4xl mx-8 lg:mx-auto my-16'>
@@ -13,11 +15,11 @@ export function CTASection() {
         Entdecken Sie jetzt unsere exklusiven Angebote und finden Sie Ihr
         perfektes Zuhause in Gera.
       </p>
-      <a
+      <Link
         href='/apartments'
         className='inline-block bg-primary text-white font-semibold px-8 py-3 rounded-lg shadow-md hover:bg-primary-dark transition-colors'>
         Ferienwohnung Buchen
-      </a>
+      </Link>
     </section>
   )
 }
