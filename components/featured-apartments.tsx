@@ -8,39 +8,6 @@ import {MapPin, Users} from "lucide-react"
 import {client} from "@/sanity/lib/client"
 import {allApartmentsQuery} from "@/sanity/lib/queries"
 
-/* const featuredApartments = [
-  {
-    id: "1",
-    name: "Modern City Center Apartment",
-    image: "/placeholder.svg?height=300&width=400",
-    price: "€65",
-    guests: 2,
-    features: ["WiFi", "Parking", "Kitchen", "City Center"],
-    description:
-      "Stylish 1-bedroom apartment in the heart of Gera with modern amenities."
-  },
-  {
-    id: "2",
-    name: "Spacious Family Suite",
-    image: "/placeholder.svg?height=300&width=400",
-    price: "€95",
-    guests: 4,
-    features: ["WiFi", "Parking", "Full Kitchen", "2 Bedrooms"],
-    description:
-      "Perfect for families with 2 bedrooms and a fully equipped kitchen."
-  },
-  {
-    id: "3",
-    name: "Business Traveler Studio",
-    image: "/placeholder.svg?height=300&width=400",
-    price: "€55",
-    guests: 1,
-    features: ["WiFi", "Workspace", "Kitchen", "Quiet Area"],
-    description:
-      "Ideal for business travelers with dedicated workspace and quiet location."
-  }
-] */
-
 interface ApartmentDetailProps {
   _id: string
   title: string
@@ -54,6 +21,14 @@ interface ApartmentDetailProps {
   images: {asset: {url: string}}[]
   ausstattung: string[]
   features: string[]
+}
+
+// Hilfsfunktion: Beschreibung nach erstem Punkt trimmen
+function trimDescription(text: string) {
+  if (!text) return ""
+  const firstPeriodIndex = text.indexOf(".")
+  if (firstPeriodIndex === -1) return text // kein Punkt, ganze Beschreibung anzeigen
+  return text.slice(0, firstPeriodIndex + 1)
 }
 
 export async function FeaturedApartments() {
@@ -90,7 +65,7 @@ export async function FeaturedApartments() {
                       className='w-full h-full object-cover'
                     />
                     <Badge className='absolute top-4 left-4 bg-background/90 text-foreground'>
-                      €{apartment.preisProNacht}/night
+                      €{apartment.preisProNacht}/Nacht
                     </Badge>
                   </div>
                 </CardHeader>
@@ -100,13 +75,13 @@ export async function FeaturedApartments() {
                     {apartment.title}
                   </h3>
                   <p className='text-muted-foreground mb-4'>
-                    {apartment.beschreibung}
+                    {trimDescription(apartment.beschreibung)}
                   </p>
 
                   <div className='flex items-center space-x-4 mb-4'>
                     <div className='flex items-center space-x-1'>
                       <Users className='h-4 w-4 text-muted-foreground' />
-                      <span className='text-sm'>{apartment.guests} guests</span>
+                      <span className='text-sm'>{apartment.guests} Gäste</span>
                     </div>
                     <div className='flex items-center space-x-1'>
                       <MapPin className='h-4 w-4 text-muted-foreground' />
@@ -114,13 +89,11 @@ export async function FeaturedApartments() {
                     </div>
                   </div>
 
+                  {/* Ausstattung statt Features */}
                   <div className='flex flex-wrap gap-2'>
-                    {apartment.features.slice(0, 3).map((feature: string) => (
-                      <Badge
-                        key={feature}
-                        variant='secondary'
-                        className='text-xs'>
-                        {feature}
+                    {apartment.ausstattung.slice(0, 3).map((item: string) => (
+                      <Badge key={item} variant='secondary' className='text-xs'>
+                        {item}
                       </Badge>
                     ))}
                   </div>
@@ -129,7 +102,7 @@ export async function FeaturedApartments() {
                 <CardFooter className='p-6 pt-0'>
                   <Button asChild className='w-full'>
                     <Link href={`/apartments/${apartment.slug}`}>
-                      View Details
+                      Details ansehen
                     </Link>
                   </Button>
                 </CardFooter>
@@ -139,7 +112,7 @@ export async function FeaturedApartments() {
 
         <div className='text-center'>
           <Button size='lg' variant='outline' asChild>
-            <Link href='/apartments'>View All Apartments</Link>
+            <Link href='/apartments'>Alle Wohnungen anzeigen</Link>
           </Button>
         </div>
       </div>

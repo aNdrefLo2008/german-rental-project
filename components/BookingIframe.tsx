@@ -22,45 +22,37 @@ declare global {
 
 export function BookingIframe({id, url}: BookingIframeProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-
-  // Keep track of which iframes have been initialized
-  const initializedIframes: Record<string, boolean> = {}
+  const scriptLoaded = useRef(false)
+  const initializedIframes = useRef<Record<string, boolean>>({})
 
   useEffect(() => {
-    if (!document.querySelector("#smoobu-script")) {
-      const script = document.createElement("script")
-      script.id = "smoobu-script"
-      script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js"
-      script.async = true
-      document.body.appendChild(script)
-
-      script.onload = () => {
-        if (
-          window.BookingToolIframe &&
-          containerRef.current &&
-          !initializedIframes[id]
-        ) {
-          window.BookingToolIframe.initialize({
-            url,
-            baseUrl: "https://login.smoobu.com",
-            target: `#${id}`
-          })
-          initializedIframes[id] = true
-        }
-      }
-    } else {
+    function initializeIframe() {
       if (
         window.BookingToolIframe &&
         containerRef.current &&
-        !initializedIframes[id]
+        !initializedIframes.current[id]
       ) {
         window.BookingToolIframe.initialize({
           url,
           baseUrl: "https://login.smoobu.com",
-          target: `#${id}`
+          target: `[id="${id}"]`
         })
-        initializedIframes[id] = true
+        initializedIframes.current[id] = true
       }
+    }
+
+    if (!scriptLoaded.current) {
+      const script = document.createElement("script")
+      script.id = "smoobu-script"
+      script.src = "https://login.smoobu.com/js/Settings/BookingToolIframe.js"
+      script.async = true
+      script.onload = () => {
+        scriptLoaded.current = true
+        initializeIframe()
+      }
+      document.body.appendChild(script)
+    } else {
+      initializeIframe()
     }
   }, [id, url])
 

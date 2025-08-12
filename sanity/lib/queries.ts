@@ -11,10 +11,10 @@ export const apartmentQuery = `*[_type == "wohnung" && slug.current == $slug][0]
   "images": bilder[]{asset->},
   verfuegbarkeitIframe,
   lageKarte,
-  faq,
   metaDescription,
   features
-}`;
+}`
+
 
 
 export const allApartmentsQuery = `
@@ -28,7 +28,8 @@ export const allApartmentsQuery = `
     bedrooms,
     bathrooms,
     features,
-    beschreibung
+    beschreibung,
+    ausstattung
   } | order(_createdAt desc)
 `
 
