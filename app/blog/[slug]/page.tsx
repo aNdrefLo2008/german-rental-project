@@ -62,7 +62,11 @@ export default async function BlogPostPage({params}: Props) {
         <article>
           <h1 className='text-4xl font-bold mb-4'>{post.title}</h1>
           <p className='text-gray-500 mb-6'>
-            {new Date(post.veroeffentlichtAm).toLocaleDateString("de-DE")}
+            {new Date(post.veroeffentlichtAm).toLocaleDateString("de-DE", {
+              day: "2-digit",
+              month: "long",
+              year: "numeric"
+            })}
           </p>
           <section className='prose max-w-none mb-12'>
             <PortableText value={post.inhalt} />

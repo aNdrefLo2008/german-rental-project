@@ -24,7 +24,7 @@ export interface BlogPost {
   title: string
   slug: string
   bild: string
-  inhalt: PortableTextBlock[] // Portable Text blocks
+  inhalt: PortableTextBlock[]
   veroeffentlichtAm: string
 }
 
@@ -50,7 +50,11 @@ export default async function BlogPage() {
             <div className='p-4'>
               <h2 className='text-xl font-semibold mb-2'>{post.title}</h2>
               <p className='text-gray-500'>
-                {new Date(post.veroeffentlichtAm).toLocaleDateString("de-DE")}
+                {new Date(post.veroeffentlichtAm).toLocaleDateString("de-DE", {
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric"
+                })}
               </p>
             </div>
           </Link>

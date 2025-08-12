@@ -4,6 +4,7 @@ import {client} from "@/sanity/lib/client"
 import {upsellQuery, reviewsQuery} from "@/sanity/lib/queries"
 import {Shield, Clock, Heart, Award} from "lucide-react"
 import Link from "next/link"
+import {Button} from "./ui/button"
 
 type Review = {
   _id: string
@@ -42,6 +43,8 @@ const features = [
 ]
 
 export async function About() {
+  const aboutImg: string =
+    "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg"
   const upsell = await client.fetch(upsellQuery)
   const reviews: Review[] = await client.fetch(reviewsQuery)
 
@@ -51,11 +54,15 @@ export async function About() {
         {/* Why choose section */}
         <div className='text-center mb-12'>
           <h2 className='text-3xl md:text-4xl font-bold mb-4'>
-            Why Choose Our Apartments
+            Übernachten in Gera: Inmitten von Kunst und Kultur
           </h2>
           <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-            We&apos;ve been providing exceptional short-term rental experiences
-            in Gera for years, ensuring every guest feels at home.
+            In der umweltfreundlichen Stadt Gera erleben Sie die Magie von Kunst
+            und Kultur aus nächster Nähe. Als Geburtsstadt von Otto Dix, einem
+            der berühmtesten Künstler und Grafiker des 20. Jahrhunderts, können
+            Sie in dem Otto Dix Geburtshaus etwa 450 Werke des Künstlers
+            bewundern. Seine Werke beeindrucken durch eine breite stilistische
+            Vielfalt.
           </p>
         </div>
 
@@ -127,24 +134,25 @@ export async function About() {
           <div className='grid lg:grid-cols-2 gap-8 items-center'>
             <div>
               <h3 className='text-2xl md:text-3xl font-bold mb-4'>
-                Your Home Away From Home in Gera
+                Übernachten in Gera: Inmitten von Kunst und Kultur
               </h3>
               <p className='text-muted-foreground mb-6'>
-                Our 8 carefully curated apartments offer the perfect blend of
-                comfort, convenience, and local charm. Whether you&apos;re
-                visiting for business or pleasure, staying for a few days or
-                several weeks, we have the perfect space for you.
+                In der umweltfreundlichen Stadt Gera erleben Sie die Magie von
+                Kunst und Kultur aus nächster Nähe.
               </p>
-              <p className='text-muted-foreground'>
-                Located in prime areas of Gera, each apartment is fully
-                furnished and equipped with everything you need for a
-                comfortable stay. From modern amenities to local insights,
-                we&apos;re here to make your visit memorable.
+              <p className='text-muted-foreground mb-6'>
+                Als Geburtsstadt von Otto Dix, einem der berühmtesten Künstler
+                und Grafiker des 20. Jahrhunderts, können Sie in dem Otto Dix
+                Geburtshaus etwa 450 Werke des Künstlers bewundern. Seine Werke
+                beeindrucken durch eine breite stilistische Vielfalt.
               </p>
+              <Button className='p-6 text-white'>
+                <Link href='/blog'>Wichtige Infos</Link>
+              </Button>
             </div>
             <div className='aspect-[4/3] rounded-xl overflow-hidden'>
               <img
-                src='/placeholder.svg?height=400&width=500'
+                src={aboutImg || "/placeholder.svg?height=400&width=500"}
                 alt='Gera city view'
                 className='w-full h-full object-cover'
               />
@@ -166,11 +174,9 @@ export async function About() {
                 {upsell.preis && (
                   <p className='text-lg font-semibold mb-6'>{upsell.preis}</p>
                 )}
-                <Link
-                  href={upsell.ctaLink || "/"}
-                  className='bg-primary text-white px-6 py-3 rounded-lg inline-block'>
-                  Jetzt buchen
-                </Link>
+                <Button className='p-6 text-white'>
+                  <Link href={upsell.ctaLink || "/"}>Wichtige Infos</Link>
+                </Button>
               </div>
               {upsell.imageUrl && (
                 <div className='aspect-[4/3] rounded-xl overflow-hidden'>
