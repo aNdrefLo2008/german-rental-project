@@ -18,27 +18,27 @@ type Review = {
 const features = [
   {
     icon: Shield,
-    title: "Safe & Secure",
+    title: "Sicher & geschützt",
     description:
-      "All our apartments are professionally cleaned and sanitized between stays."
+      "Alle unsere Apartments werden professionell gereinigt und zwischen den Aufenthalten desinfiziert."
   },
   {
     icon: Clock,
     title: "24/7 Support",
     description:
-      "Our team is available around the clock to assist with any questions or concerns."
+      "Unser Team steht rund um die Uhr zur Verfügung, um bei Fragen oder Anliegen zu helfen."
   },
   {
     icon: Heart,
-    title: "Local Experience",
+    title: "Lokale Erfahrung",
     description:
-      "We provide insider tips and recommendations to help you experience Gera like a local."
+      "Wir geben Insider-Tipps und Empfehlungen, damit Sie Gera wie ein Einheimischer erleben können."
   },
   {
     icon: Award,
-    title: "Quality Guaranteed",
+    title: "Qualität garantiert",
     description:
-      "Each apartment is carefully selected and maintained to our high standards."
+      "Jedes Apartment wird sorgfältig ausgewählt und nach unseren hohen Standards gepflegt."
   }
 ]
 
@@ -88,7 +88,7 @@ export async function About() {
         {reviews?.length > 0 && (
           <div className='mb-16'>
             <h3 className='text-2xl font-bold mb-6 text-center'>
-              What Our Guests Say
+              Was unsere Gäste sagen
             </h3>
             <div className='grid lg:grid-cols-3 grid-cols-1 gap-6 items-center justify-center'>
               {reviews.slice(0, 3).map((review: Review) => (
@@ -123,7 +123,7 @@ export async function About() {
               <Link
                 href='/reviews'
                 className='text-primary font-semibold hover:underline'>
-                Read all reviews →
+                Alle Bewertungen lesen →
               </Link>
             </div>
           </div>

@@ -12,9 +12,9 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navigation = [
-    {name: "Home", href: "/"},
+    {name: "Startseite", href: "/"},
     {name: "Apartments", href: "/apartments"},
-    {name: "Contact", href: "/contact"},
+    {name: "Kontakt", href: "/contact"},
     {name: "Blog", href: "/blog"}
   ]
 
@@ -41,7 +41,7 @@ export function Header() {
               </Link>
             ))}
             <Button asChild>
-              <Link href='/apartments'>Book Now</Link>
+              <Link href='/apartments'>Jetzt buchen</Link>
             </Button>
           </nav>
 
@@ -50,7 +50,7 @@ export function Header() {
             <SheetTrigger asChild className='md:hidden'>
               <Button variant='ghost' size='icon'>
                 <Menu className='h-5 w-5' />
-                <span className='sr-only'>Toggle menu</span>
+                <span className='sr-only'>Menü umschalten</span>
               </Button>
             </SheetTrigger>
             <SheetContent side='right'>
@@ -66,7 +66,7 @@ export function Header() {
                 ))}
                 <Button asChild className='w-full h-10'>
                   <Link href='/apartments' onClick={() => setIsOpen(false)}>
-                    Book Now
+                    Jetzt buchen
                   </Link>
                 </Button>
               </div>

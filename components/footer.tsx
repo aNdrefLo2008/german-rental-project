@@ -37,34 +37,34 @@ export async function Footer() {
               />
             </Link>
             <p className='text-sm text-muted-foreground'>
-              Premium short-term rental apartments in the heart of Gera,
-              Germany.
+              Premium-Ferienwohnungen zur Kurzzeitmiete im Herzen von Gera,
+              Deutschland.
             </p>
           </div>
 
           <div>
-            <h3 className='font-semibold mb-4'>Quick Links</h3>
+            <h3 className='font-semibold mb-4'>Schnellzugriff</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <Link href='/' className='hover:text-primary'>
-                  Home
+                  Startseite
                 </Link>
               </li>
               <li>
                 <Link href='/apartments' className='hover:text-primary'>
-                  Apartments
+                  Wohnungen
                 </Link>
               </li>
               <li>
                 <Link href='/contact' className='hover:text-primary'>
-                  Contact
+                  Kontaktieren
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className='font-semibold mb-4'>Contact Info</h3>
+            <h3 className='font-semibold mb-4'>Kontaktinformationen</h3>
             <ul className='space-y-2 text-sm'>
               <li className='flex items-center space-x-2'>
                 <Phone className='h-4 w-4' />
@@ -76,27 +76,27 @@ export async function Footer() {
               </li>
               <li className='flex items-center space-x-2'>
                 <MapPin className='h-4 w-4' />
-                <span>Gera, Germany</span>
+                <span>Gera, Deutschland</span>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className='font-semibold mb-4'>Legal</h3>
+            <h3 className='font-semibold mb-4'>Rechtliches</h3>
             <ul className='space-y-2 text-sm'>
               <li>
                 <Link href='/legal' className='hover:text-primary'>
-                  Privacy Policy
+                  Datenschutz
                 </Link>
               </li>
               <li>
                 <Link href='/legal' className='hover:text-primary'>
-                  Terms of Service
+                  Nutzungsbedingungen
                 </Link>
               </li>
               <li>
                 <Link href='/legal' className='hover:text-primary'>
-                  Imprint
+                  Impressum
                 </Link>
               </li>
             </ul>
@@ -104,7 +104,7 @@ export async function Footer() {
         </div>
 
         <div className='border-t mt-8 pt-8 text-center text-sm text-muted-foreground'>
-          <p>&copy; 2024 Gera Apartments. All rights reserved.</p>
+          <p>&copy; 2024 Gera Apartments. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

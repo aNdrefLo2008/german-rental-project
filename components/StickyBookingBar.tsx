@@ -25,7 +25,7 @@ export function StickyBookingBar() {
 
       <span
         className={`font-medium text-sm sm:text-[16px] whitespace-nowrap text-gray-700`}>
-        Special Offer 50% Off:
+        Sonderangebot 50% Rabatt:
       </span>
       <Button
         asChild
