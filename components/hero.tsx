@@ -55,7 +55,9 @@ export function Hero() {
             <div className='aspect-[4/3] overflow-hidden bg-muted'>
               <Image
                 src={heroImg || "/placeholder.svg?height=600&width=800"}
-                fill
+                width={1000}
+                height={600}
+                priority
                 alt='Modern apartment interior'
                 className='w-full rounded-2xl h-full object-cover'
               />
