@@ -4,13 +4,9 @@ import Link from "next/link"
 import {Button} from "@/components/ui/button"
 import {MapPin, Star, Users} from "lucide-react"
 import Image from "next/image"
-// import heroExampleImg from "../public/Hero-Example.jpg"
-// import Image from "next/image"
+import heroImg from "../public/HeroImg.jpg"
 
 export function Hero() {
-  const heroImg: string =
-    "https://ferienwohnungen-gera.de/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-07-at-10.58.30-1024x768.jpeg.pagespeed.ce.FGUwS9bQix.jpg"
-
   return (
     <section className='relative bg-gradient-to-br from-primary/5 via-background to-secondary/5'>
       <div className='container mx-auto px-4 py-16 md:py-24'>
