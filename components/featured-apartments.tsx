@@ -65,7 +65,7 @@ export async function FeaturedApartments() {
                       className='w-full h-full object-cover'
                     />
                     <Badge className='absolute top-4 left-4 bg-background/90 text-foreground'>
-                      €{apartment.preisProNacht}/Nacht
+                      Ab €{apartment.preisProNacht}/Nacht
                     </Badge>
                   </div>
                 </CardHeader>

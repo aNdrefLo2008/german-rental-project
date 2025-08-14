@@ -51,7 +51,7 @@ export async function ApartmentGrid() {
                 className='w-full h-full object-cover'
               />
               <Badge className='absolute top-4 left-4 bg-background/90 text-foreground'>
-                €{apartment.preisProNacht}/night
+                Ab €{apartment.preisProNacht}/night
               </Badge>
             </div>
           </CardHeader>
