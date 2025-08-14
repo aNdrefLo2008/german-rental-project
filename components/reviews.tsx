@@ -2,6 +2,7 @@
 
 "use client" // needed in Next.js 13+ if inside app directory
 
+import Image from "next/image"
 import React, {useState} from "react"
 
 type Review = {
@@ -65,7 +66,7 @@ export default function Reviews({reviews}: ReviewsProps) {
             className='p-4 border rounded-lg shadow-sm bg-white max-w-80 mx-auto'>
             <div className='flex items-center mb-2'>
               {review.bildUrl ? (
-                <img
+                <Image
                   src={review.bildUrl}
                   alt={review.name}
                   width={40}

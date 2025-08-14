@@ -3,6 +3,7 @@
 import Link from "next/link"
 import {Button} from "@/components/ui/button"
 import {MapPin, Star, Users} from "lucide-react"
+import Image from "next/image"
 // import heroExampleImg from "../public/Hero-Example.jpg"
 // import Image from "next/image"
 
@@ -55,11 +56,12 @@ export function Hero() {
           </div>
 
           <div className='relative'>
-            <div className='aspect-[4/3] rounded-2xl overflow-hidden bg-muted'>
-              <img
+            <div className='aspect-[4/3] overflow-hidden bg-muted'>
+              <Image
                 src={heroImg || "/placeholder.svg?height=600&width=800"}
+                fill
                 alt='Modern apartment interior'
-                className='w-full h-full object-cover'
+                className='w-full rounded-2xl h-full object-cover'
               />
             </div>
             <div

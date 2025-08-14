@@ -4,6 +4,7 @@ import Link from "next/link"
 import {Mail, Phone, MapPin} from "lucide-react"
 import {client} from "@/sanity/lib/client"
 import {settingsQuery} from "@/sanity/lib/queries"
+import Image from "next/image"
 
 export type NavigationItem = {
   title: string
@@ -30,7 +31,9 @@ export async function Footer() {
         <div className='grid md:grid-cols-4 gap-8'>
           <div>
             <Link href='/' className='flex items-center mb-4'>
-              <img
+              <Image
+                width={40}
+                height={40}
                 src='/logo.svg'
                 alt='Ferienwohnungen Gera'
                 className='h-8 w-auto'

@@ -7,6 +7,7 @@ import Link from "next/link"
 import {Button} from "@/components/ui/button"
 import {ArrowLeft, ArrowRight, Users, Bed, Bath, MapPin, X} from "lucide-react"
 import {BookingIframe} from "./BookingIframe"
+import Image from "next/image"
 
 interface ApartmentDetailProps {
   apartment: {
@@ -99,7 +100,9 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
           {/* Large image */}
           <div className='mb-8'>
             <div className='aspect-[16/10] rounded-lg overflow-hidden mb-4'>
-              <img
+              <Image
+                width={728}
+                height={408}
                 src={
                   apartment.images?.[currentImage]?.asset?.url ||
                   "/placeholder.svg"
@@ -120,7 +123,9 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
                       ? "border-primary"
                       : "border-transparent"
                   }`}>
-                  <img
+                  <Image
+                    width={728}
+                    height={408}
                     src={image.asset.url}
                     alt={`Vorschaubild ${index + 1}`}
                     className='w-full h-full object-cover'
@@ -161,7 +166,9 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
                   key={index}
                   onClick={() => setSelectedImage(index)}
                   className='max-w-60 aspect-square rounded-md overflow-hidden border border-gray-300 hover:border-primary transition-colors'>
-                  <img
+                  <Image
+                    width={728}
+                    height={408}
                     src={image.asset.url}
                     alt={`Galerie Bild ${index + 1}`}
                     className='w-full h-full object-cover'
@@ -185,7 +192,9 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
                   <ArrowLeft className='w-10 h-10' />
                 </button>
 
-                <img
+                <Image
+                  width={728}
+                  height={408}
                   src={apartment.images[selectedImage].asset.url}
                   alt={`Galerie Bild ${selectedImage + 1}`}
                   className='max-h-full max-w-full object-contain rounded-2xl'

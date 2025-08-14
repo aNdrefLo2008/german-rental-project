@@ -7,6 +7,7 @@ import {Badge} from "@/components/ui/badge"
 import {Users, Bed, Bath} from "lucide-react"
 import {client} from "@/sanity/lib/client"
 import {allApartmentsQuery} from "@/sanity/lib/queries"
+import Image from "next/image"
 
 interface ApartmentDetailProps {
   _id: string
@@ -45,7 +46,8 @@ export async function ApartmentGrid() {
           className='overflow-hidden hover:shadow-lg transition-shadow'>
           <CardHeader className='p-0'>
             <div className='aspect-[20/10] relative'>
-              <img
+              <Image
+                fill
                 src={apartment.images?.[0]?.asset?.url || "/placeholder.svg"}
                 alt={apartment.title}
                 className='w-full h-full object-cover'

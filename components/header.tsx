@@ -7,6 +7,7 @@ import Link from "next/link"
 import {Menu} from "lucide-react"
 import {Button} from "@/components/ui/button"
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
+import Image from "next/image"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,7 +24,9 @@ export function Header() {
       <div className='container mx-auto px-4'>
         <div className='flex h-16 items-center justify-between'>
           <Link href='/' className='flex items-center'>
-            <img
+            <Image
+              width={40}
+              height={40}
               src='/logo.svg'
               alt='Ferienwohnungen Gera'
               className='h-10 w-auto'

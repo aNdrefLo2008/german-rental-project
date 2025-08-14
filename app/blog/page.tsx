@@ -2,6 +2,7 @@
 
 import {client} from "@/sanity/lib/client"
 import {blogQuery} from "@/sanity/lib/queries"
+import Image from "next/image"
 import Link from "next/link"
 
 export type PortableTextSpan = {
@@ -41,7 +42,9 @@ export default async function BlogPage() {
             href={`/blog/${post.slug}`}
             className='block rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow'>
             {post.bild && (
-              <img
+              <Image
+                width={728}
+                height={408}
                 src={post.bild}
                 alt={post.title}
                 className='aspect-[5/3] object-cover'

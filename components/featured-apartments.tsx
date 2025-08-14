@@ -7,6 +7,7 @@ import {Badge} from "@/components/ui/badge"
 import {MapPin, Users} from "lucide-react"
 import {client} from "@/sanity/lib/client"
 import {allApartmentsQuery} from "@/sanity/lib/queries"
+import Image from "next/image"
 
 interface ApartmentDetailProps {
   _id: string
@@ -57,14 +58,15 @@ export async function FeaturedApartments() {
                 className='overflow-hidden hover:shadow-lg transition-shadow'>
                 <CardHeader className='p-0'>
                   <div className='aspect-[20/10] relative'>
-                    <img
+                    <Image
+                      fill
                       src={
                         apartment.images?.[0]?.asset?.url || "/placeholder.svg"
                       }
                       alt={apartment.title}
                       className='w-full h-full object-cover'
                     />
-                    <Badge className='absolute top-4 left-4 bg-background/90 text-foreground'>
+                    <Badge className='absolute top-4 left-4 bg-background/50 backdrop-blur text-foreground'>
                       Ab €{apartment.preisProNacht}/Nacht
                     </Badge>
                   </div>

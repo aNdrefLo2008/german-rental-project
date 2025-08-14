@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ['ferienwohnungen-gera.de', 'cdn.sanity.io', 'i0.wp.com'],
+  },
 };
 
 export default nextConfig;

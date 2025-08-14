@@ -5,6 +5,7 @@ import {upsellQuery, reviewsQuery} from "@/sanity/lib/queries"
 import {Shield, Clock, Heart, Award} from "lucide-react"
 import Link from "next/link"
 import {Button} from "./ui/button"
+import Image from "next/image"
 
 type Review = {
   _id: string
@@ -95,7 +96,7 @@ export async function About() {
                   key={review._id}
                   className='p-6 border rounded-lg bg-white shadow-sm flex flex-col'>
                   <div className='flex items-center mb-4'>
-                    <img
+                    <Image
                       src={
                         review.bildUrl ||
                         "https://i0.wp.com/e-quester.com/wp-content/uploads/2021/11/placeholder-image-person-jpg.jpg?fit=820%2C678&ssl=1"
@@ -130,7 +131,7 @@ export async function About() {
 
         {/* About text */}
         <div className='bg-muted/50 rounded-2xl p-8 md:p-12'>
-          <div className='grid lg:grid-cols-2 gap-8 items-center'>
+          <div className='grid lg:grid-cols-2 gap-8 justify-center items-center'>
             <div>
               <h3 className='text-2xl md:text-3xl font-bold mb-4'>
                 Übernachten in Gera: Inmitten von Kunst und Kultur
@@ -149,11 +150,13 @@ export async function About() {
                 <Link href='/blog'>Wichtige Infos</Link>
               </Button>
             </div>
-            <div className='aspect-[4/3] rounded-xl overflow-hidden'>
-              <img
+            <div className='aspect-[4/3] overflow-hidden'>
+              <Image
                 src={aboutImg || "/placeholder.svg?height=400&width=500"}
                 alt='Gera city view'
-                className='w-full h-full object-cover'
+                width={728}
+                height={408}
+                className='w-full rounded-xl h-full object-cover'
               />
             </div>
           </div>
@@ -179,9 +182,11 @@ export async function About() {
               </div>
               {upsell.imageUrl && (
                 <div className='aspect-[4/3] rounded-xl overflow-hidden'>
-                  <img
+                  <Image
                     src={upsell.imageUrl}
                     alt={upsell.title}
+                    width={728}
+                    height={408}
                     className='w-full h-full object-cover shadow-lg'
                   />
                 </div>

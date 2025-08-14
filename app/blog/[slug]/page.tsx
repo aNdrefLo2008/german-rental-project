@@ -6,6 +6,7 @@ import {PortableText} from "@portabletext/react"
 import type {Metadata} from "next"
 import Link from "next/link"
 import {ArrowLeft} from "lucide-react"
+import Image from "next/image"
 
 export type PortableTextSpan = {
   _key: string
@@ -74,7 +75,9 @@ export default async function BlogPostPage({params}: Props) {
         </article>
 
         {post.bild && (
-          <img
+          <Image
+            width={728}
+            height={408}
             src={post.bild}
             alt={post.title}
             className='aspect-[5/4] object-cover rounded mb-6'
