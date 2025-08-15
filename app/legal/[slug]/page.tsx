@@ -5,14 +5,16 @@ import {Metadata} from "next"
 import Link from "next/link"
 
 interface Props {
-  params: {slug: string} // plain object
-  searchParams?: {[key: string]: string | string[] | undefined}
+  params: Promise<{slug: string}>
+  searchParams?: Promise<{[key: string]: string | string[] | undefined}>
 }
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {slug} = await params
+
   const data = await client.fetch(
     `*[_type == "legalPage" && slug.current == $slug][0]`,
-    {slug: params.slug}
+    {slug: slug}
   )
 
   return {
@@ -60,8 +62,9 @@ const components: PortableTextComponents = {
 }
 
 export default async function LegalPage({params}: Props) {
+  const {slug} = await params
   const query = `*[_type == "legalPage" && slug.current == $slug][0]`
-  const data = await client.fetch(query, {slug: params.slug})
+  const data = await client.fetch(query, {slug: slug})
 
   if (!data) {
     return <div>Seite nicht gefunden</div>
