@@ -1,7 +1,26 @@
 /** @format */
 import {client} from "@/sanity/lib/client"
 import {PortableText, PortableTextComponents} from "@portabletext/react"
+import {Metadata} from "next"
 import Link from "next/link"
+
+interface Props {
+  params: {slug: string}
+}
+
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const data = await client.fetch(
+    `*[_type == "legalPage" && slug.current == $slug][0]`,
+    {slug: params.slug}
+  )
+
+  return {
+    title: data?.title ?? "Rechtliche Seite",
+    description:
+      data?.metaDescription ??
+      "Informationen zu unseren rechtlichen Richtlinien."
+  }
+}
 
 const components: PortableTextComponents = {
   block: {
