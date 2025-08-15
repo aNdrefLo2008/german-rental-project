@@ -88,17 +88,17 @@ export async function Footer() {
             <h3 className='font-semibold mb-4'>Rechtliches</h3>
             <ul className='space-y-2 text-sm'>
               <li>
-                <Link href='/legal' className='hover:text-primary'>
+                <Link href='/legal/datenschutz' className='hover:text-primary'>
                   Datenschutz
                 </Link>
               </li>
               <li>
-                <Link href='/legal' className='hover:text-primary'>
-                  Nutzungsbedingungen
+                <Link href='/legal/agb' className='hover:text-primary'>
+                  AGB
                 </Link>
               </li>
               <li>
-                <Link href='/legal' className='hover:text-primary'>
+                <Link href='/legal/impressum' className='hover:text-primary'>
                   Impressum
                 </Link>
               </li>

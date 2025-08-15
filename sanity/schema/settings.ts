@@ -13,5 +13,9 @@ export default defineType({
     defineField({ name: 'whatsAppLink', title: 'WhatsApp Link', type: 'url' }),
     defineField({ name: 'footerText', title: 'Footer Text', type: 'text' }),
     defineField({ name: 'navigation', title: 'Navigation', type: 'array', of: [{ type: 'navItem' }] }),
+    defineField({ name: 'defaultMetaTitle', title: 'Standard Meta Title', type: 'string' }),
+    defineField({ name: 'defaultMetaDescription', title: 'Standard Meta Description', type: 'string' }),
+    defineField({ name: 'defaultKeywords', title: 'Standard Keywords', type: 'array', of: [{ type: 'string' }] }),
+    defineField({ name: 'defaultOgImage', title: 'Standard Open Graph Bild', type: 'image' }),
   ],
 })

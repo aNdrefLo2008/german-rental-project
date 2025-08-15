@@ -20,5 +20,6 @@ export default defineType({
     defineField({ name: "bathrooms", title: "Badezimmer", type: "number" }),
     defineField({ name: "size", title: "Größe (m²)", type: "number" }),
     defineField({ name: 'features', title: 'Features', type: 'array', of: [{ type: 'string' }] }),
+  
   ],
 })

@@ -9,15 +9,43 @@ import {Footer} from "@/components/footer"
 import {WhatsAppButton} from "@/components/whatsapp-button"
 import {StickyBookingBar} from "@/components/StickyBookingBar"
 import {CookieConsentBanner} from "@/components/CookieConsentBanner"
+import {client} from "@/sanity/lib/client"
 
 const inter = Inter({subsets: ["latin"]})
 
-export const metadata: Metadata = {
-  title: "Gera Apartments - Premium Short-Term Rentals",
-  description:
-    "Discover our collection of 8 beautifully furnished short-term rental apartments in Gera, Germany. Perfect for business travelers, tourists, and extended stays.",
-  keywords:
-    "Gera apartments, short-term rental, vacation rental, business accommodation, Germany"
+async function getSettings() {
+  return await client.fetch(`*[_type == "settings"][0]{
+    defaultMetaTitle,
+    defaultMetaDescription,
+    defaultKeywords
+  }`)
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSettings()
+
+  return {
+    title: settings?.defaultMetaTitle || "Fallback Title",
+    description: settings?.defaultMetaDescription || "Fallback description",
+    keywords: settings?.defaultKeywords || [],
+    openGraph: {
+      title: settings?.defaultMetaTitle || "Fallback Title",
+      description: settings?.defaultMetaDescription || "Fallback description",
+      images: [
+        {
+          url: settings?.defaultOgImage?.asset?.url || "/fallback-og.jpg",
+          width: 1200,
+          height: 630
+        }
+      ],
+      type: "website"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: settings?.defaultMetaTitle || "Fallback Title",
+      description: settings?.defaultMetaDescription || "Fallback description"
+    }
+  }
 }
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
