@@ -5,7 +5,8 @@ import {Metadata} from "next"
 import Link from "next/link"
 
 interface Props {
-  params: {slug: string}
+  params: {slug: string} // plain object
+  searchParams?: {[key: string]: string | string[] | undefined}
 }
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
@@ -58,7 +59,7 @@ const components: PortableTextComponents = {
   }
 }
 
-export default async function LegalPage({params}: {params: {slug: string}}) {
+export default async function LegalPage({params}: Props) {
   const query = `*[_type == "legalPage" && slug.current == $slug][0]`
   const data = await client.fetch(query, {slug: params.slug})
 
