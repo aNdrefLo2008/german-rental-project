@@ -7,6 +7,7 @@ module.exports = {
     '/api/*',      // API-Routen ausschließen
     '/admin/*'     // optional: andere interne Bereiche
   ],
+  outDir: './public',
   robotsTxtOptions: {
     policies: [
       {
