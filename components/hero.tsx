@@ -43,7 +43,7 @@ export function Hero() {
 
             <div className='flex flex-col sm:flex-row gap-4'>
               <Button size='xl' asChild>
-                <Link href='/apartments'>Unsere Wohnungen</Link>
+                <Link href='/booking'>Jetzt Buchen</Link>
               </Button>
               <Button size='xl' variant='outline' asChild>
                 <Link href='/contact'>Kontaktieren Sie uns</Link>
