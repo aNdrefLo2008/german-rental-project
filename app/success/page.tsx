@@ -1,5 +1,7 @@
 /** @format */
 
+"use client"
+
 import {useEffect} from "react"
 import {gtmEvent} from "@/components/tracking-bootstrap"
 
