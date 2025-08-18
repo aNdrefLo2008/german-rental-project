@@ -5,9 +5,14 @@
 import {useEffect} from "react"
 import {usePathname} from "next/navigation"
 
+type GTMEvent = {
+  event: string
+  [key: string]: string | number | boolean | undefined
+}
+
 declare global {
   interface Window {
-    dataLayer: any[]
+    dataLayer: GTMEvent[]
   }
 }
 
