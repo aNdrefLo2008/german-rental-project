@@ -11,7 +11,10 @@ declare global {
   }
 }
 
-export function gtmEvent(event: string, params: Record<string, any> = {}) {
+export function gtmEvent(
+  event: string,
+  params: Record<string, string | number | boolean | undefined> = {}
+) {
   if (typeof window === "undefined") return
   window.dataLayer = window.dataLayer || []
   window.dataLayer.push({event, ...params})
