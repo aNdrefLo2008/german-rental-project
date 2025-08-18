@@ -10,6 +10,8 @@ import {WhatsAppButton} from "@/components/whatsapp-button"
 import {StickyBookingBar} from "@/components/StickyBookingBar"
 import {CookieConsentBanner} from "@/components/CookieConsentBanner"
 import {client} from "@/sanity/lib/client"
+import {GTM, GTMNoScript} from "@/components/GTM"
+import {TrackingBootstrap} from "@/components/tracking-bootstrap"
 
 const inter = Inter({subsets: ["latin"]})
 
@@ -52,7 +54,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang='en'>
       <body className={inter.className}>
+        <GTM />
+        <GTMNoScript />
         <Header />
+        <TrackingBootstrap />
         {children}
         <CookieConsentBanner />
         <StickyBookingBar />

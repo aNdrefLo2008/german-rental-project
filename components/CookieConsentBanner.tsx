@@ -6,6 +6,7 @@ import {useState, useEffect} from "react"
 import {Button} from "@/components/ui/button"
 import {X} from "lucide-react"
 import {motion, AnimatePresence} from "framer-motion"
+import {gtmEvent} from "@/components/tracking-bootstrap"
 
 export function CookieConsentBanner() {
   const [show, setShow] = useState(false)
@@ -18,6 +19,7 @@ export function CookieConsentBanner() {
   const close = (accepted: boolean) => {
     if (accepted) {
       localStorage.setItem("cookie-consent", "accepted")
+      gtmEvent("form_submit", {form_id: "contact", method: "ajax"})
     } else {
       localStorage.setItem("cookie-consent", "rejected")
     }
