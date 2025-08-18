@@ -33,7 +33,7 @@ export function GTM() {
   return (
     <>
       {/* Consent Mode: default = denied */}
-      <Script id='consent-default' strategy='beforeInteractive'>
+      <Script id='consent-default' strategy='afterInteractive'>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -48,7 +48,7 @@ export function GTM() {
         `}
       </Script>
 
-      {/* GTM Container wird IMMER geladen */}
+      {/* GTM Container wird immer geladen */}
       <Script id='gtm' strategy='afterInteractive'>
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -61,7 +61,7 @@ export function GTM() {
 
       {/* Consent granted nach Opt-In */}
       {consented && (
-        <Script id='consent-grant' strategy='beforeInteractive'>
+        <Script id='consent-grant' strategy='afterInteractive'>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -79,13 +79,7 @@ export function GTM() {
 }
 
 export function GTMNoScript() {
-  const [consented, setConsented] = useState(false)
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID
-
-  useEffect(() => {
-    setConsented(hasConsent())
-  }, [])
-
   if (!gtmId) return null
 
   return (
