@@ -32,7 +32,7 @@ export function StickyBookingBar() {
         size='lg'
         variant='default'
         className={`whitespace-nowrap `}>
-        <Link href='/apartments' target='_blank' rel='noopener noreferrer'>
+        <Link href='/booking' target='_blank' rel='noopener noreferrer'>
           Jetzt buchen
         </Link>
       </Button>

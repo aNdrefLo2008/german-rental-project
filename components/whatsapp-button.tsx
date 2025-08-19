@@ -11,7 +11,7 @@ import {motion, AnimatePresence} from "framer-motion"
 
 export function WhatsAppButton() {
   const [whatsAppLink, setWhatsAppLink] = useState<string | null>(
-    "wa.link/kx1w5o"
+    "https://wa.me/49 176 34492580?text=Hi!%20Es%20geht%20um%20eine%20Ferienwohnung%20in%20Gera.."
   )
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export function WhatsAppButton() {
     <AnimatePresence>
       <motion.a
         key='whatsapp-button'
-        href={whatsAppLink}
+        href='https://wa.me/4917634492580?text=Hi!%20Es%20geht%20um%20eine%20Ferienwohnung%20in%20Gera..'
         target='_blank'
         rel='noopener noreferrer'
         initial={{y: 100, opacity: 0}}
