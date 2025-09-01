@@ -13,8 +13,8 @@ export default function HomePage() {
       <Hero />
       <FeaturedApartments />
       <About />
-      <Contact />
       <FAQSection />
+      <Contact />
       <CTASection />
     </main>
   )

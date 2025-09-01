@@ -1,41 +1,30 @@
 /** @format */
-import {Button} from "@/components/ui/button"
+"use client"
+
 import Link from "next/link"
-import {ShoppingCart} from "lucide-react"
 
 export function StickyBookingBar() {
   return (
-    <div
-      className='
-      fixed bottom-4 left-1/2 transform -translate-x-1/2
-      backdrop-blur
-      shadow-lg
-      rounded-full
-      px-6 py-3
-      flex items-center space-x-4 justify-center sm:mx-0 mx-0
-      max-w-md w-full supports-[backdrop-filter]:bg-background/40'
-      style={{
-        backdropFilter: "blur(20px)",
-        WebkitBackdropFilter: "blur(20px)"
-      }}>
-      <ShoppingCart
-        className={`sm:block hidden text-gray-700`}
-        style={{width: 24, height: 24, minWidth: 24, minHeight: 24}}
-      />
-
-      <span
-        className={`font-medium text-sm sm:text-[16px] whitespace-nowrap text-gray-700`}>
-        Sonderangebot 50% Rabatt:
-      </span>
-      <Button
-        asChild
-        size='lg'
-        variant='default'
-        className={`whitespace-nowrap `}>
-        <Link href='/booking' target='_blank' rel='noopener noreferrer'>
-          Jetzt buchen
-        </Link>
-      </Button>
+    <div className='w-full shadow-md bg-gray-100'>
+      <div
+        className='
+          mx-auto max-w-5xl 
+          flex flex-col sm:flex-row items-center justify-center 
+          gap-2 px-4 sm:px-6 py-3 text-center sm:text-left
+        '>
+        <p className='font-normal lg:font-medium text-sm  sm:text-base text-gray-700'>
+          Erhalten Sie 20 € Rabatt auf Ihre Buchung nur für kurze Zeit mit Code:{" "}
+          <span className='font-bold'>20EURO</span> –{" "}
+          <Link
+            href='/booking'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='font-bold underline'>
+            Jetzt buchen
+          </Link>{" "}
+          oder anrufen: <span className='font-bold'>0176 3449 2580</span>
+        </p>
+      </div>
     </div>
   )
 }

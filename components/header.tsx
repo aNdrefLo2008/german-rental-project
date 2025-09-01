@@ -4,7 +4,7 @@
 
 import {useState} from "react"
 import Link from "next/link"
-import {Menu} from "lucide-react"
+import {Menu, Phone} from "lucide-react"
 import {Button} from "@/components/ui/button"
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
 import Image from "next/image"
@@ -25,16 +25,17 @@ export function Header() {
         <div className='flex h-16 items-center justify-between'>
           <Link href='/' className='flex items-center'>
             <Image
-              width={40}
-              height={40}
               src='/logo.svg'
               alt='Ferienwohnungen Gera'
-              className='h-10 w-auto'
+              width={40}
+              height={40}
+              priority
+              className='min-w-fit h-10 object-contain'
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className='hidden md:flex items-center space-x-6'>
+          <nav className='hidden lg:flex items-center space-x-6'>
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -43,6 +44,9 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            <Button>
+              <Phone /> +49 176 3449 2580
+            </Button>
             <Button asChild>
               <Link href='/booking'>Jetzt buchen</Link>
             </Button>
@@ -50,7 +54,7 @@ export function Header() {
 
           {/* Mobile Navigation */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className='md:hidden'>
+            <SheetTrigger asChild className='lg:hidden'>
               <Button variant='ghost' size='icon'>
                 <Menu className='h-5 w-5' />
                 <span className='sr-only'>Menü umschalten</span>
@@ -67,6 +71,10 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
+                <Button className='w-full h-10' variant='phone'>
+                  <Phone />
+                  +49 176 3449 2580
+                </Button>
                 <Button asChild className='w-full h-10'>
                   <Link href='/booking' onClick={() => setIsOpen(false)}>
                     Jetzt buchen

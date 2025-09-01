@@ -80,7 +80,7 @@ export async function Contact() {
             <CardContent className='text-center'>
               <p className='text-muted-foreground'>Gera, Deutschland</p>
               <p className='text-sm text-muted-foreground mt-1'>
-                Zentrale Lage
+                Zentrale Lagen
               </p>
             </CardContent>
           </Card>

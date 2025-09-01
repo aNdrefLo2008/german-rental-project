@@ -12,9 +12,8 @@ export function Hero() {
       <div className='container mx-auto px-4 py-16 md:py-24'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           <div>
-            <h1 className='text-4xl md:text-6xl font-bold leading-none mb-6'>
-              Ferienwohnung in Gera:
-              <span className='text-primary block'>Jetzt buchen</span>
+            <h1 className='text-4xl md:text-[50px] xl:text-6xl font-bold leading-none md:leading-tight mb-6 md:mb-4 md:max-w-3xl'>
+              Ferienwohnung in Gera: Jetzt buchen
             </h1>
             <p className='text-lg text-muted-foreground mb-8 max-w-lg'>
               Buchen Sie jetzt GARANTIERT günstiger als bei Booking, Airbnb &
@@ -26,7 +25,7 @@ export function Hero() {
               <div className='flex items-center space-x-2'>
                 <MapPin className='h-5 w-5 text-primary' />
                 <span className='text-sm font-medium'>
-                  Zentrale Lage in Gera
+                  Zentrale Lagen in Gera
                 </span>
               </div>
               <div className='flex items-center space-x-2'>
@@ -43,10 +42,10 @@ export function Hero() {
 
             <div className='flex flex-col sm:flex-row gap-4'>
               <Button size='xl' asChild>
-                <Link href='/booking'>Jetzt Buchen</Link>
+                <Link href='/booking'>Verfügbarkeit prüfen</Link>
               </Button>
               <Button size='xl' variant='outline' asChild>
-                <Link href='/contact'>Kontaktieren Sie uns</Link>
+                <Link href='/apartments'>Unsere Wohnungen</Link>
               </Button>
             </div>
           </div>

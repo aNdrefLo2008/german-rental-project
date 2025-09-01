@@ -25,7 +25,7 @@ export default async function FAQSection() {
   }
 
   return (
-    <section className='py-16 bg-gray-50'>
+    <section className='py-16 bg-gradient-to-b from-gray-50 to-white'>
       <div className='container mx-auto px-4 max-w-3xl'>
         <h2 className='text-3xl font-bold mb-8'>Häufig gestellte Fragen</h2>
         <div className='space-y-4'>
@@ -37,14 +37,6 @@ export default async function FAQSection() {
               defaultOpen={i === 0}
             />
           ))}
-        </div>
-
-        <div className='mt-8 text-center'>
-          <a
-            href='/reviews'
-            className='inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition'>
-            Mehr Lesen
-          </a>
         </div>
       </div>
     </section>

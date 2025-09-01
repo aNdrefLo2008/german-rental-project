@@ -12,6 +12,7 @@ import {CookieConsentBanner} from "@/components/CookieConsentBanner"
 import {client} from "@/sanity/lib/client"
 import {GTM, GTMNoScript} from "@/components/GTM"
 import {TrackingBootstrap} from "@/components/tracking-bootstrap"
+import {HeaderWithBooking} from "@/components/HeaderWithBooking"
 
 const inter = Inter({subsets: ["latin"]})
 
@@ -56,11 +57,12 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body className={inter.className}>
         <GTM />
         <GTMNoScript />
-        <Header />
+
+        <HeaderWithBooking />
+
         <TrackingBootstrap />
         {children}
         <CookieConsentBanner />
-        <StickyBookingBar />
         <Footer />
         <WhatsAppButton />
       </body>
