@@ -104,7 +104,7 @@ export async function FeaturedApartments() {
                 <CardFooter className='p-6 pt-0'>
                   <Button asChild className='w-full'>
                     <Link href={`/apartments/${apartment.slug}`}>
-                      Details ansehen
+                      Verfügbarkeit prüfen
                     </Link>
                   </Button>
                 </CardFooter>

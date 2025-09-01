@@ -44,7 +44,7 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <Button>
+            <Button variant='phone'>
               <Phone /> +49 176 3449 2580
             </Button>
             <Button asChild>

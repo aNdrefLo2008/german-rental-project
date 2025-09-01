@@ -13,9 +13,9 @@ export function HeaderWithBooking() {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        setHidden(true) // runter scrollen
+        setHidden(true)
       } else {
-        setHidden(false) // hoch scrollen
+        setHidden(false)
       }
       setLastScrollY(window.scrollY)
     }

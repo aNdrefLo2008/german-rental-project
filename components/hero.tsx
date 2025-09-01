@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import {Button} from "@/components/ui/button"
-import {MapPin, Star, Users} from "lucide-react"
+import {MapPin, Star, Award, Users, House, AlarmClockCheck} from "lucide-react"
 import Image from "next/image"
 import heroImg from "../public/HeroImg.jpg"
 
@@ -35,8 +35,30 @@ export function Hero() {
                 </span>
               </div>
               <div className='flex items-center space-x-2'>
+                <House className='h-5 w-5 text-primary' />
+                <span className='text-sm font-medium'>
+                  6 Wohnungen Verfügbar
+                </span>
+              </div>
+              <div className='flex items-center space-x-2'>
                 <Users className='h-5 w-5 text-primary' />
-                <span className='text-sm font-medium'>1-4 Gäste</span>
+                <span className='text-sm font-medium'>
+                  Perfekt für 1-2 Gäste
+                </span>
+              </div>
+
+              <div className='flex items-center space-x-2'>
+                <AlarmClockCheck className='h-5 w-5 text-primary' />
+                <span className='text-sm font-medium'>
+                  24/7 Check-in über Schlüsselbox
+                </span>
+              </div>
+
+              <div className='flex items-center space-x-2'>
+                <Award className='h-5 w-5 text-primary' />
+                <span className='text-sm font-medium'>
+                  547+ zufriedene Gäste
+                </span>
               </div>
             </div>
 

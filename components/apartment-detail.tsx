@@ -85,7 +85,7 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
           <div className='text-right'>
             <div className='flex gap-2 justify-end items-center'>
               <div className='text-3xl font-bold text-primary'>
-                €{apartment.preisProNacht}
+                Ab €{apartment.preisProNacht}
               </div>
             </div>
             <div className='text-sm text-muted-foreground'>pro Nacht</div>

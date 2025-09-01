@@ -90,7 +90,9 @@ export async function ApartmentGrid() {
 
           <CardFooter className='p-6 pt-0'>
             <Button asChild className='w-full'>
-              <Link href={`/apartments/${apartment.slug}`}>View Details</Link>
+              <Link href={`/apartments/${apartment.slug}`}>
+                Verfügbarkeit prüfen
+              </Link>
             </Button>
           </CardFooter>
         </Card>

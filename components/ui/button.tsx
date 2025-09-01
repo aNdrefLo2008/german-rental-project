@@ -12,7 +12,7 @@ const buttonVariants = cva(
         default:
           "bg-[#3B4AFF] text-white shadow-xs hover:bg-[#278FFF] hover:scale-105 hover:-translate-y-0.5 active:scale-95 active:translate-y-0",
         phone:
-          "bg-[#0A2540] text-white shadow-xs hover:bg-[#278FFF] hover:scale-105 hover:-translate-y-0.5 active:scale-95 active:translate-y-0",
+          "bg-[#0A2540] text-white shadow-xs hover:scale-105 hover:-translate-y-0.5 active:scale-95 active:translate-y-0",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
