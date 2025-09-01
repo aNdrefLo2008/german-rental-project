@@ -45,7 +45,7 @@ export async function ApartmentGrid() {
           key={apartment._id}
           className='overflow-hidden hover:shadow-lg transition-shadow'>
           <CardHeader className='p-0'>
-            <div className='aspect-[2/1] relative'>
+            <div className='relative w-full aspect-2/1'>
               <Image
                 fill
                 src={apartment.images?.[0]?.asset?.url ?? "/placeholder.svg"}
