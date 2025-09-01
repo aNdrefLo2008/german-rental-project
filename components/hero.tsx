@@ -21,7 +21,7 @@ export function Hero() {
               ausgestatteten Ferienwohnungen mitten im Zentrum von Gera.
             </p>
 
-            <div className='flex flex-wrap gap-6 mb-8'>
+            <div className='flex flex-wrap sm:text-base text-sm gap-6 mb-8'>
               <div className='flex items-center space-x-2'>
                 <MapPin className='h-5 w-5 text-primary' />
                 <span className='text-sm font-medium'>

@@ -30,7 +30,7 @@ export function Header() {
               width={40}
               height={40}
               priority
-              className='min-w-full h-10 object-contain'
+              className='w-full h-10 object-contain'
             />
           </Link>
 
