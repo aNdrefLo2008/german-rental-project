@@ -21,42 +21,42 @@ export function Hero() {
               ausgestatteten Ferienwohnungen mitten im Zentrum von Gera.
             </p>
 
-            <div className='flex flex-wrap sm:text-base text-sm gap-6 mb-8'>
-              <div className='flex items-center space-x-2'>
-                <MapPin className='h-5 w-5 text-primary' />
-                <span className='text-sm font-medium'>
+            <div className='flex flex-wrap gap-4 sm:gap-6 mb-8'>
+              <div className='flex items-center justify-center space-x-1 sm:space-x-2'>
+                <MapPin className='h-4 w-4 sm:h-5 sm:w-5 text-primary' />
+                <span className='text-xs sm:text-sm font-medium'>
                   Zentrale Lagen in Gera
                 </span>
               </div>
-              <div className='flex items-center space-x-2'>
-                <Star className='h-5 w-5 text-primary' />
-                <span className='text-sm font-medium'>
+              <div className='flex items-center justify-center space-x-1 sm:space-x-2'>
+                <Star className='h-4 w-4 sm:h-5 sm:w-5 text-primary' />
+                <span className='text-xs sm:text-sm font-medium'>
                   5-Sterne Bewertungen
                 </span>
               </div>
-              <div className='flex items-center space-x-2'>
-                <House className='h-5 w-5 text-primary' />
-                <span className='text-sm font-medium'>
+              <div className='flex items-center justify-center space-x-1 sm:space-x-2'>
+                <House className='h-4 w-4 sm:h-5 sm:w-5 text-primary' />
+                <span className='text-xs sm:text-sm font-medium'>
                   6 Wohnungen Verfügbar
                 </span>
               </div>
-              <div className='flex items-center space-x-2'>
-                <Users className='h-5 w-5 text-primary' />
-                <span className='text-sm font-medium'>
+              <div className='flex items-center justify-center space-x-1 sm:space-x-2'>
+                <Users className='h-4 w-4 sm:h-5 sm:w-5 text-primary' />
+                <span className='text-xs sm:text-sm font-medium'>
                   Perfekt für 1-2 Gäste
                 </span>
               </div>
 
-              <div className='flex items-center space-x-2'>
-                <AlarmClockCheck className='h-5 w-5 text-primary' />
-                <span className='text-sm font-medium'>
+              <div className='flex items-center justify-center space-x-1 sm:space-x-2'>
+                <AlarmClockCheck className='h-4 w-4 sm:h-5 sm:w-5 text-primary' />
+                <span className='text-xs sm:text-sm font-medium'>
                   24/7 Check-in über Schlüsselbox
                 </span>
               </div>
 
-              <div className='flex items-center space-x-2'>
-                <Award className='h-5 w-5 text-primary' />
-                <span className='text-sm font-medium'>
+              <div className='flex justify-center items-center space-x-1 sm:space-x-2'>
+                <Award className='h-4 w-4 sm:h-5 sm:w-5 text-primary' />
+                <span className='text-xs sm:text-sm font-medium'>
                   547+ zufriedene Gäste
                 </span>
               </div>

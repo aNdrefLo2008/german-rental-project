@@ -25,14 +25,14 @@ export function Header() {
         <div className='flex h-16 items-center justify-between'>
           <Link
             href='/'
-            className='flex items-center sm:justify-center justify-start'>
+            className='flex items-center justify-start flex-1 sm:flex-none sm:justify-center'>
             <Image
               src='/logo.svg'
               alt='Ferienwohnungen Gera'
               width={40}
               height={40}
               priority
-              className='w-full h-8 sm:h-10 object-contain'
+              className='w-auto h-8 sm:h-10 object-contain'
             />
           </Link>
 

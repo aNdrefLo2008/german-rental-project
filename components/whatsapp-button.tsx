@@ -33,7 +33,7 @@ export function WhatsAppButton() {
         animate={{y: 0, opacity: 1}}
         exit={{y: 100, opacity: 0}}
         transition={{duration: 0.4, ease: "easeInOut"}}
-        className='fixed sm:bottom-4 bottom-20 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300'>
+        className='fixed bottom-4 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-green-500 text-white shadow-lg hover:bg-green-600 transition-colors duration-300'>
         {/* WhatsApp SVG Icon */}
         <svg
           xmlns='http://www.w3.org/2000/svg'
