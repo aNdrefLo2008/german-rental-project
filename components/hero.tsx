@@ -8,7 +8,7 @@ import heroImg from "../public/HeroImg.jpg"
 
 export function Hero() {
   return (
-    <section className='mt-2 relative bg-gradient-to-br from-primary/5 via-background to-secondary/5'>
+    <section className='-mt-4 relative bg-gradient-to-br from-primary/5 via-background to-secondary/5'>
       <div className='container mx-auto px-4 py-16 md:py-24'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           <div>

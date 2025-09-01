@@ -8,7 +8,7 @@ import type {Settings} from "@/components/footer"
 import {motion, AnimatePresence} from "framer-motion"
 
 export function WhatsAppButton() {
-  const [whatsAppLink, setWhatsAppLink] = useState<string | null>(
+  const [whatsAppLink, setWhatsAppLink] = useState<string>(
     "https://wa.me/4917634492580?text=Hi!%20Es%20geht%20um%20eine%20Ferienwohnung%20in%20Gera.."
   )
 
