@@ -20,7 +20,7 @@ export function StickyBookingBar() {
             target='_blank'
             rel='noopener noreferrer'
             className='font-bold underline'>
-            Jetzt buchen
+            Jetzt Buchen
           </Link>{" "}
           oder anrufen: <span className='font-bold'>0176 3449 2580</span>
         </p>

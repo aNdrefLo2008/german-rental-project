@@ -13,7 +13,7 @@ export function Hero() {
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           <div>
             <h1 className='text-4xl md:text-[50px] xl:text-6xl font-bold leading-none md:leading-tight mb-6 md:mb-4 md:max-w-3xl'>
-              Ferienwohnung in Gera: Jetzt buchen
+              Ferienwohnung in Gera:
             </h1>
             <p className='text-lg text-muted-foreground mb-8 max-w-lg'>
               Buchen Sie jetzt GARANTIERT günstiger als bei Booking, Airbnb &

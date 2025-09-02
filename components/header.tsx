@@ -50,7 +50,7 @@ export function Header() {
               <Phone /> +49 176 3449 2580
             </Button>
             <Button asChild>
-              <Link href='/booking'>Jetzt buchen</Link>
+              <Link href='/booking'>Jetzt Buchen</Link>
             </Button>
           </nav>
 
@@ -79,7 +79,7 @@ export function Header() {
                 </Button>
                 <Button asChild className='w-full h-10'>
                   <Link href='/booking' onClick={() => setIsOpen(false)}>
-                    Jetzt buchen
+                    Jetzt Buchen
                   </Link>
                 </Button>
               </div>

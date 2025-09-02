@@ -20,7 +20,7 @@ export default async function BookingPage() {
         </Link>
       </div>
 
-      <h1 className='text-3xl font-bold mb-6'>Jetzt buchen</h1>
+      <h1 className='text-3xl font-bold mb-6'>Verfügbarkeit prüfen</h1>
       <p className='mb-8 text-gray-600'>
         Nutzen Sie unser Buchungstool, um Ihre Ferienwohnung in Gera direkt
         online zu reservieren.

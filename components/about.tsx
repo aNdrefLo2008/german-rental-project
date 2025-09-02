@@ -177,7 +177,7 @@ export async function About() {
                   <p className='text-lg font-semibold mb-6'>{upsell.preis}</p>
                 )}
                 <Button className='p-6 text-white'>
-                  <Link href={upsell.ctaLink || "/"}>Jetzt buchen</Link>
+                  <Link href={upsell.ctaLink || "/"}></Link>
                 </Button>
               </div>
               {upsell.imageUrl && (
