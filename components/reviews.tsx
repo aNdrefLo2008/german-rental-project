@@ -82,40 +82,63 @@ export default function Reviews({
         // Sidebar: one column, scrollable if tall
         <div className='space-y-4 max-h-[70vh] overflow-auto pr-1 scrollbar'>
           {filtered.length === 0 && (
-            <p className='text-center text-gray-500'>
+            <p className='col-span-full text-center text-gray-500'>
               Keine Bewertungen gefunden.
             </p>
           )}
           {filtered.map((review) => (
             <div
               key={review._id}
-              className='p-4 border rounded-xl shadow-sm bg-white w-full'>
-              <div className='flex items-center mb-2'>
-                {review.bildUrl ? (
-                  <Image
-                    src={review.bildUrl}
-                    alt={review.name}
-                    width={40}
-                    height={40}
-                    className='rounded-full mr-3'
-                  />
-                ) : (
-                  <div className='w-10 h-10 rounded-full bg-gray-300 mr-3' />
-                )}
-                <div>
-                  <p className='font-semibold leading-tight'>{review.name}</p>
-                  <p className='text-xs text-gray-500'>{review.quelle}</p>
-                </div>
-              </div>
-              <div className='flex mb-2 text-yellow-400 text-sm'>
-                {"★".repeat(review.sterne)}
-                <span className='text-gray-300'>
-                  {"☆".repeat(5 - review.sterne)}
-                </span>
-              </div>
-              <p className='text-gray-700 text-sm leading-relaxed'>
-                {review.bewertung}
+              className='p-6 border rounded-2xl shadow-sm bg-white w-full flex flex-col justify-between'>
+              {/* Datum (optional: falls du ein Feld für Datum hast) */}
+              {/* review.datum && (
+                <p className='text-xs text-indigo-600 font-medium mb-3'>
+                  {new Date(review.datum).toLocaleDateString("de-DE", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                  })}
+                </p>
+              )*/}
+
+              {/* Text */}
+              <p className='text-gray-700 italic mb-6 leading-relaxed'>
+                “{review.bewertung}”
               </p>
+
+              {/* Footer mit Avatar + Info */}
+              <div className='mt-auto'>
+                <div className='flex items-center mb-3'>
+                  {review.bildUrl ? (
+                    <Image
+                      src={review.bildUrl}
+                      alt={review.name}
+                      width={40}
+                      height={40}
+                      className='rounded-full mr-3'
+                    />
+                  ) : (
+                    <div className='w-10 h-10 rounded-full bg-gray-300 mr-3' />
+                  )}
+                  <div className='flex flex-col justify-between items-start gap-1'>
+                    <p className='font-semibold leading-tight'>{review.name}</p>
+                    <p className='text-xs text-gray-500'>{review.quelle}</p>
+                  </div>
+                </div>
+
+                {/* Sterne */}
+                <div className='flex items-center gap-1 text-yellow-400 text-sm mb-1'>
+                  {"★".repeat(review.sterne)}
+                  <span className='text-gray-300'>
+                    {"☆".repeat(5 - review.sterne)}
+                  </span>
+                </div>
+
+                {/* Verifiziert Label */}
+                <p className='text-xs text-emerald-600 font-medium'>
+                  ✅ Verifizierte {review.quelle} Bewertung
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -134,31 +157,56 @@ export default function Reviews({
           {filtered.map((review) => (
             <div
               key={review._id}
-              className='p-4 border rounded-xl shadow-sm bg-white w-full'>
-              <div className='flex items-center mb-2'>
-                {review.bildUrl ? (
-                  <Image
-                    src={review.bildUrl}
-                    alt={review.name}
-                    width={40}
-                    height={40}
-                    className='rounded-full mr-3'
-                  />
-                ) : (
-                  <div className='w-10 h-10 rounded-full bg-gray-300 mr-3' />
-                )}
-                <div>
-                  <p className='font-semibold leading-tight'>{review.name}</p>
-                  <p className='text-xs text-gray-500'>{review.quelle}</p>
+              className='p-6 border rounded-2xl shadow-sm bg-white w-full flex flex-col justify-between'>
+              {/* Datum (optional: falls du ein Feld für Datum hast) */}
+              {/*review.datum && (
+                <p className='text-xs text-indigo-600 font-medium mb-3'>
+                  {new Date(review.datum).toLocaleDateString("de-DE", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                  })}
+                </p>
+              )*/}
+
+              {/* Text */}
+              <p className='text-gray-700 italic mb-6 leading-relaxed'>
+                “{review.bewertung}”
+              </p>
+
+              {/* Footer mit Avatar + Info */}
+              <div className='mt-auto'>
+                <div className='flex items-center mb-3'>
+                  {review.bildUrl ? (
+                    <Image
+                      src={review.bildUrl}
+                      alt={review.name}
+                      width={40}
+                      height={40}
+                      className='rounded-full mr-3'
+                    />
+                  ) : (
+                    <div className='w-10 h-10 rounded-full bg-gray-300 mr-3' />
+                  )}
+                  <div className='flex flex-col justify-between items-start gap-1'>
+                    <p className='font-semibold leading-tight'>{review.name}</p>
+                    <p className='text-xs text-gray-500'>{review.quelle}</p>
+                  </div>
                 </div>
+
+                {/* Sterne */}
+                <div className='flex items-center gap-1 text-yellow-400 text-sm mb-1'>
+                  {"★".repeat(review.sterne)}
+                  <span className='text-gray-300'>
+                    {"☆".repeat(5 - review.sterne)}
+                  </span>
+                </div>
+
+                {/* Verifiziert Label */}
+                <p className='bg-emerald-50 p-2 rounded-full text-xs text-emerald-600 font-medium'>
+                  ✅ Verifizierte {review.quelle} Bewertung
+                </p>
               </div>
-              <div className='flex mb-2 text-yellow-400'>
-                {"★".repeat(review.sterne)}
-                <span className='text-gray-300'>
-                  {"☆".repeat(5 - review.sterne)}
-                </span>
-              </div>
-              <p className='text-gray-700'>{review.bewertung}</p>
             </div>
           ))}
         </div>

@@ -114,7 +114,7 @@ export async function FeaturedApartments() {
 
         <div className='text-center'>
           <Button size='lg' variant='outline' asChild>
-            <Link href='/apartments'>Alle Wohnungen anzeigen</Link>
+            <Link href='/apartments'>Alle Ferienwohnungen anzeigen</Link>
           </Button>
         </div>
       </div>

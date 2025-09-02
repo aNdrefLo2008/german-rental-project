@@ -90,35 +90,55 @@ export async function About() {
             <h3 className='text-2xl font-bold mb-6 text-center'>
               Was unsere Gäste sagen
             </h3>
-            <div className='grid lg:grid-cols-3 grid-cols-1 gap-6 items-center justify-center'>
+            <div className='max-w-6xl mx-auto grid lg:grid-cols-3 grid-cols-1 gap-10 items-stretch'>
               {reviews.slice(0, 3).map((review: Review) => (
                 <div
                   key={review._id}
-                  className='p-6 border rounded-lg bg-white shadow-sm flex flex-col'>
-                  <div className='flex items-center mb-4'>
-                    <Image
-                      src={
-                        review.bildUrl ||
-                        "https://i0.wp.com/e-quester.com/wp-content/uploads/2021/11/placeholder-image-person-jpg.jpg?fit=820%2C678&ssl=1"
-                      }
-                      alt={review.name}
-                      width={40}
-                      height={40}
-                      className='rounded-full mr-3 object-cover'
-                    />
-                    <div>
-                      <p className='font-semibold'>{review.name}</p>
-                      <p className='text-sm text-gray-500'>{review.quelle}</p>
+                  className='p-6 border rounded-2xl shadow-sm bg-white flex flex-col justify-between h-full'>
+                  {/* Text */}
+                  <p className='text-gray-700 italic mb-6 leading-relaxed flex-1'>
+                    “{review.bewertung}”
+                  </p>
+
+                  {/* Footer mit Avatar + Info */}
+                  <div className='mt-auto'>
+                    <div className='flex items-center mb-3'>
+                      {review.bildUrl ? (
+                        <Image
+                          src={review.bildUrl}
+                          alt={review.name}
+                          width={40}
+                          height={40}
+                          className='rounded-full mr-3'
+                        />
+                      ) : (
+                        <div className='w-10 h-10 rounded-full bg-gray-300 mr-3' />
+                      )}
+                      <div className='flex flex-col justify-between items-start gap-1'>
+                        <p className='font-semibold leading-tight'>
+                          {review.name}
+                        </p>
+                        <p className='text-xs text-gray-500'>{review.quelle}</p>
+                      </div>
                     </div>
+
+                    {/* Sterne */}
+                    <div className='flex items-center gap-1 text-yellow-400 text-sm mb-1'>
+                      {"★".repeat(review.sterne)}
+                      <span className='text-gray-300'>
+                        {"☆".repeat(5 - review.sterne)}
+                      </span>
+                    </div>
+
+                    {/* Verifiziert Label */}
+                    <p className='bg-emerald-50 px-3 py-1 rounded-full text-xs text-emerald-600 font-medium'>
+                      ✅ Verifizierte {review.quelle} Bewertung
+                    </p>
                   </div>
-                  <div className='flex mb-2 text-yellow-500'>
-                    {"★".repeat(review.sterne)}
-                    {"☆".repeat(5 - review.sterne)}
-                  </div>
-                  <p className='text-gray-700 flex-grow'>{review.bewertung}</p>
                 </div>
               ))}
             </div>
+
             <div className='text-center mt-6'>
               <Link
                 href='/reviews'
