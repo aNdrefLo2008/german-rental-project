@@ -11,7 +11,7 @@ export function Hero() {
       <div className='container mx-auto px-4 py-16 md:py-24'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           {/* LEFT col: text + ctas */}
-          <div className='flex justify-center lg:justify-start'>
+          <div className='flex justify-center lg:justify-end'>
             <div className='text-center lg:text-left md:-mt-10 lg:-mt-20 max-w-xl'>
               <h1 className='text-4xl md:text-[50px] xl:text-6xl font-bold leading-none md:leading-tight mb-6 md:mb-4 md:max-w-3xl'>
                 Ferienwohnung in Gera: Jetzt Buchen
