@@ -69,7 +69,7 @@ export function Hero() {
                   <Link href='/booking'>Verfügbarkeit prüfen</Link>
                 </Button>
                 <Button size='xl' variant='outline' asChild>
-                  <Link href='/apartments'>Unsere Wohnungen</Link>
+                  <Link href='/apartments'>Unsere Ferienwohnungen</Link>
                 </Button>
               </div>
             </div>
@@ -78,52 +78,52 @@ export function Hero() {
           {/* RIGHT col: images */}
           <div className='grid grid-cols-2 gap-x-2 sm:gap-x-4 -mt-8 justify-center'>
             {/* col1 */}
-            <div className='space-y-3 flex flex-col items-end'>
+            <div className='space-y-3 flex flex-col items-end w-full'>
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnungen-gera-innenstadt-jasmin-fewo-urlaub-deutsche-pension-online-gaestewohnung.jpg'
                 alt='Apartment 1'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-bad-badezimmer-dusche-neu-handtuecher-bettwaesche-inklusive-reinigung-sauber-sehr-gute-bewertungen-erfahrung-austattung-top-neu-renoviert-1024x683.jpg'
                 alt='Apartment 2'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-07-at-10.58.30-1024x768.jpeg'
                 alt='Apartment 3'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
               />
             </div>
 
             {/* col2 */}
-            <div className='space-y-3 mt-16 flex flex-col items-start'>
+            <div className='space-y-3 mt-16 flex flex-col items-start w-full'>
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2025/01/booking-award-ferienwohnungen-gera--1024x1024.png'
                 alt='Booking Award'
                 width={400}
                 height={400}
-                className='rounded-xl object-cover max-w-[220px] md:max-w-[260px] lg:max-w-[250px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[250px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-mieten-buchen-maria-zentrum-07545-thueringen-fewo--1024x683.jpg'
                 alt='Apartment 4'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2023/04/grosse-ferienwohnung-in-gera-4-personen-4-betten-airbnb-unterkunft-uebernachten-1024x683.png.pagespeed.ce.AkvDqqZ1be.png'
                 alt='Apartment 5'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
               />
             </div>
           </div>

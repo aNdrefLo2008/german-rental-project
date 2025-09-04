@@ -22,7 +22,7 @@ interface ApartmentDetailProps {
     images: {asset: {url: string}}[]
     ausstattung: string[]
     verfuegbarkeitIframe: string
-    lageKarte?: string
+    lageKarte?: string // Google Maps iframe link
     metaDescription?: string
     features?: string[]
   }
@@ -95,7 +95,7 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
 
       {/* Main Grid: Images + Booking */}
       <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-        {/* Left: Images, Description, Ausstattung */}
+        {/* Left: Images, Description, Ausstattung, Galerie, Lage */}
         <div className='md:col-span-2'>
           {/* Large image */}
           <div className='mb-8'>
@@ -208,6 +208,23 @@ export function ApartmentDetail({apartment}: ApartmentDetailProps) {
               </div>
             )}
           </div>
+
+          {/* Lagekarte */}
+          {apartment.lageKarte && (
+            <div className='mt-12'>
+              <h2 className='text-2xl font-semibold mb-4'>Lage</h2>
+              <div className='rounded-xl overflow-hidden shadow border aspect-[16/9]'>
+                <iframe
+                  src={apartment.lageKarte}
+                  width='100%'
+                  height='100%'
+                  style={{border: 0}}
+                  allowFullScreen
+                  loading='lazy'
+                  referrerPolicy='no-referrer-when-downgrade'></iframe>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Right: Booking iframe */}

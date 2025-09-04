@@ -7,6 +7,7 @@ import {Contact} from "@/components/contact"
 import FAQSection from "../components/FAQ"
 import {CTASection} from "@/components/CTASection"
 import ExplanationBoxes from "@/components/ExplanationBoxes"
+import AboutUs from "@/components/AboutUs"
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Hero />
       <ExplanationBoxes />
       <FeaturedApartments />
+      <AboutUs />
       <About />
       <FAQSection />
       <Contact />
