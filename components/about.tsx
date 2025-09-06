@@ -120,74 +120,109 @@ export default async function About() {
 
         <div className='bg-muted/50 rounded-2xl p-8 md:p-12 mt-16'>
           <div className='grid lg:grid-cols-2 gap-8'>
-            {/* Linke Seite: Textboxen mit Checkboxen */}
-            <div className='space-y-6'>
-              <div className='bg-white rounded-xl p-6 shadow'>
-                <label className='flex items-center space-x-3'>
-                  <input type='checkbox' className='h-5 w-5 text-primary' />
-                  <span className='text-muted-foreground'>
-                    Option 1: Infos über Gera
-                  </span>
-                </label>
+            {/* Linke Seite: Bilder */}
+            <div className='grid grid-cols-4 gap-4'>
+              <div className='col-span-3 overflow-hidden rounded-xl'>
+                <Image
+                  width={1200}
+                  height={800}
+                  src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg'
+                  alt='Gera Hauptbild'
+                  className='aspect-square w-full h-full object-cover'
+                />
               </div>
-              <div className='bg-white rounded-xl p-6 shadow'>
-                <label className='flex items-center space-x-3'>
-                  <input type='checkbox' className='h-5 w-5 text-primary' />
-                  <span className='text-muted-foreground'>
-                    Option 2: Sehenswürdigkeiten
-                  </span>
-                </label>
-              </div>
-              <div className='bg-white rounded-xl p-6 shadow'>
-                <label className='flex items-center space-x-3'>
-                  <input type='checkbox' className='h-5 w-5 text-primary' />
-                  <span className='text-muted-foreground'>
-                    Option 3: Unterkunftsmöglichkeiten
-                  </span>
-                </label>
+              <div className='col-span-1 grid grid-rows-3 gap-4'>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    width={400}
+                    height={400}
+                    src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-vacation-apartment-booking-premium-airbnb-booking-fewo-central-thueringen-vacation-pension-wlan-819x1024.jpg.pagespeed.ce.90KjGntYZR.jpg'
+                    alt='Kleines Bild 1'
+                    className='aspect-square w-full h-full object-cover'
+                  />
+                </div>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    width={400}
+                    height={400}
+                    src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-mieten-buchen-fewo-monteurzimmer-hotel-alternative-07545-jasmin-maria.jpg.pagespeed.ce.cTPQgVrEXu.jpg'
+                    alt='Kleines Bild 2'
+                    className='aspect-square w-full h-full object-cover'
+                  />
+                </div>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    width={400}
+                    height={400}
+                    src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohung-gera-07545-markt-zentrum-stadt-mieten-thueringen-fewo-unterkunft-kurzurlaub-692x1024.jpg.pagespeed.ce.NX4hCQRGPF.jpg'
+                    alt='Kleines Bild 3'
+                    className='aspect-square w-full h-full object-cover'
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Rechte Seite: Bilder */}
-            <div className='grid grid-rows-3 gap-4'>
-              <div className='row-span-2 overflow-hidden rounded-xl'>
-                <Image
-                  src={
-                    "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg"
-                  }
-                  alt='Gera Hauptbild'
-                  className='w-full h-full object-cover'
-                />
+            {/* Rechte Seite: Textbox mit Titel, Paragraphen, Checkboxen und Button */}
+            <div className='space-y-6'>
+              <h2 className='text-2xl font-bold'>
+                Übernachten in Gera: Inmitten von Kunst und Kultur
+              </h2>
+              <p className='text-muted-foreground'>
+                In der umweltfreundlichen Stadt Gera erleben Sie die Magie von
+                Kunst und Kultur aus nächster Nähe. Als Geburtsstadt von Otto
+                Dix, einem der berühmtesten Künstler und Grafiker des 20.
+                Jahrhunderts, können Sie in dem Otto Dix Geburtshaus etwa 450
+                Werke des Künstlers bewundern. Seine Werke beeindrucken durch
+                eine breite stilistische Vielfalt.
+              </p>
+
+              {/* Checkboxen, statisch */}
+              <div className='bg-white rounded-xl p-4 shadow'>
+                <label className='flex items-center space-x-3'>
+                  <input
+                    type='checkbox'
+                    className='h-5 w-5 text-primary'
+                    disabled
+                    checked
+                  />
+                  <span className='font-medium'>
+                    Gera ist mit ca. 90.000 Einwohnern 3. größte Stadt
+                    Thüringens
+                  </span>
+                </label>
               </div>
-              <div className='grid grid-cols-3 gap-4'>
-                <div className='overflow-hidden rounded-xl'>
-                  <Image
-                    src={
-                      "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-vacation-apartment-booking-premium-airbnb-booking-fewo-central-thueringen-vacation-pension-wlan-819x1024.jpg.pagespeed.ce.90KjGntYZR.jpg"
-                    }
-                    alt='Kleines Bild 1'
-                    className='w-full h-full object-cover'
+              <div className='bg-white rounded-xl p-4 shadow'>
+                <label className='flex items-center space-x-3'>
+                  <input
+                    type='checkbox'
+                    className='h-5 w-5 text-primary'
+                    disabled
+                    checked
                   />
-                </div>
-                <div className='overflow-hidden rounded-xl'>
-                  <Image
-                    src={
-                      "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-mieten-buchen-fewo-monteurzimmer-hotel-alternative-07545-jasmin-maria.jpg.pagespeed.ce.cTPQgVrEXu.jpg"
-                    }
-                    alt='Kleines Bild 2'
-                    className='w-full h-full object-cover'
-                  />
-                </div>
-                <div className='overflow-hidden rounded-xl'>
-                  <Image
-                    src={
-                      "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohung-gera-07545-markt-zentrum-stadt-mieten-thueringen-fewo-unterkunft-kurzurlaub-692x1024.jpg.pagespeed.ce.NX4hCQRGPF.jpg"
-                    }
-                    alt='Kleines Bild 3'
-                    className='w-full h-full object-cover'
-                  />
-                </div>
+                  <span className='font-medium'>
+                    Sitz von SRH Hochschule für Gesundheit
+                  </span>
+                </label>
               </div>
+              <div className='bg-white rounded-xl p-4 shadow'>
+                <label className='flex items-center space-x-3'>
+                  <input
+                    type='checkbox'
+                    className='h-5 w-5 text-primary'
+                    disabled
+                    checked
+                  />
+                  <span className='font-medium'>
+                    Reich an leckeren Restaurants, Bars, Fitnessstudios, schönen
+                    Parks & Einkaufsmöglichkeiten, einer Schwimmhalle, Kino &
+                    vielem mehr
+                  </span>
+                </label>
+              </div>
+
+              <Button className='p-4 '>
+                <Link href='/blog'>Hier gehts zur Restaurantempfehlung</Link>
+              </Button>
             </div>
           </div>
         </div>
@@ -206,7 +241,7 @@ export default async function About() {
                 {upsell.preis && (
                   <p className='text-lg font-semibold mb-6'>{upsell.preis}</p>
                 )}
-                <Button className='p-6 text-white'>
+                <Button className='p-4 text-white'>
                   <Link href={upsell.ctaLink || "/"}>{upsell.ctaText}</Link>
                 </Button>
               </div>

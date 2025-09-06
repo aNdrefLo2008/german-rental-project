@@ -71,7 +71,7 @@ export default function ReviewsSection({
   return (
     <div className='mb-16'>
       {variant === "full" ? (
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto'>
+        <div className='grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-7xl mx-auto'>
           {/* Sidebar */}
           <div className='flex flex-col gap-3 md:col-span-1'>
             <h3 className='md:text-3xl text-2xl font-bold md:text-left text-center md:mb-4 mb-0'>
