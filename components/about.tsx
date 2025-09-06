@@ -1,20 +1,13 @@
 /** @format */
-import {Card, CardContent} from "@/components/ui/card"
+
 import {client} from "@/sanity/lib/client"
 import {upsellQuery, reviewsQuery} from "@/sanity/lib/queries"
+import {Card, CardContent} from "@/components/ui/card"
 import {Shield, Clock, Heart, Award} from "lucide-react"
+import ReviewsSection from "./ReviewSection"
+import Image from "next/image"
 import Link from "next/link"
 import {Button} from "./ui/button"
-import Image from "next/image"
-
-type Review = {
-  _id: string
-  name: string
-  bewertung: string
-  sterne: number
-  quelle?: string
-  bildUrl?: string
-}
 
 const features = [
   {
@@ -43,30 +36,68 @@ const features = [
   }
 ]
 
-export async function About() {
+export default async function About() {
   const aboutImg: string =
     "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg"
+
   const upsell = await client.fetch(upsellQuery)
-  const reviews: Review[] = await client.fetch(reviewsQuery)
+  const reviews = await client.fetch(reviewsQuery)
 
   return (
     <section className='py-16'>
       <div className='container mx-auto px-4'>
+        {/* Header */}
         <div className='text-center mb-12'>
-          <h2 className='text-3xl md:text-4xl font-bold mb-4'>
-            Übernachten in Gera: Inmitten von Kunst und Kultur
+          <h2 className='text-3xl md:text-4xl font-bold mb-6'>
+            Ihre Vorteile als Geschäftskunde & Privatgast bei uns
           </h2>
+          <p className='text-lg text-muted-foreground max-w-2xl mx-auto mb-6'>
+            Seit 2021 betreiben wir unsere Ferienwohnungen in Gera und wissen
+            genau, worauf es bei einem komfortablen Aufenthalt ankommt – egal ob
+            für ein Wochenende, mehrere Wochen oder sogar 6–12 Monate.
+          </p>
+
+          <ul className='text-lg text-muted-foreground max-w-2xl mx-auto mb-6 list-disc list-inside space-y-2'>
+            <li>
+              Kostenlose Parkmöglichkeiten – max. 5 Minuten fußläufig oder
+              direkt vor der Unterkunft
+            </li>
+            <li>
+              Frische Bettwäsche &amp; Handtücher inklusive, mit
+              Zwischenreinigung alle 14 Tage (auf Wunsch öfter)
+            </li>
+            <li>
+              Sicher &amp; geschützt – alle Wohnungen werden professionell
+              gereinigt und gründlich desinfiziert
+            </li>
+            <li>
+              Persönlicher Service – unser deutschsprachiges Team in Gera ist
+              nahezu rund um die Uhr erreichbar
+            </li>
+            <li>
+              Qualität garantiert – sorgfältig ausgewählte Apartments,
+              eingerichtet nach hohen Standards
+            </li>
+            <li>
+              Vollständig ausgestattete Wohnungen, auch für Langzeitaufenthalte
+              geeignet
+            </li>
+            <li>
+              Transparente Abrechnung – Rechnung mit ausgewiesener Umsatzsteuer
+              <br />
+              (7 %, Stand: 2025)
+            </li>
+          </ul>
+
           <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
-            In der umweltfreundlichen Stadt Gera erleben Sie die Magie von Kunst
-            und Kultur aus nächster Nähe. Als Geburtsstadt von Otto Dix, einem
-            der berühmtesten Künstler und Grafiker des 20. Jahrhunderts, können
-            Sie in dem Otto Dix Geburtshaus etwa 450 Werke des Künstlers
-            bewundern. Seine Werke beeindrucken durch eine breite stilistische
-            Vielfalt.
+            Damit vereinen unsere Ferienwohnungen die Flexibilität einer eigenen
+            Unterkunft mit dem Komfort eines Hotels – genau das, was
+            Geschäftsreisende und Privatgäste in Gera suchen.
           </p>
         </div>
 
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12'>
+        {/* Features */}
+        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24'>
           {features.map((feature, index) => (
             <Card
               key={index}
@@ -84,100 +115,79 @@ export async function About() {
           ))}
         </div>
 
-        {/* Reviews preview */}
-        {reviews?.length > 0 && (
-          <div className='mb-16'>
-            <h3 className='text-2xl font-bold mb-6 text-center'>
-              Was unsere Gäste sagen
-            </h3>
-            <div className='max-w-6xl mx-auto grid lg:grid-cols-3 grid-cols-1 gap-10 items-stretch'>
-              {reviews.slice(0, 3).map((review: Review) => (
-                <div
-                  key={review._id}
-                  className='p-6 border rounded-2xl shadow-sm bg-white flex flex-col justify-between h-full'>
-                  {/* Text */}
-                  <p className='text-gray-700 italic mb-6 leading-relaxed flex-1'>
-                    “{review.bewertung}”
-                  </p>
+        {/* Reviews (Client Component) */}
+        {reviews?.length > 0 && <ReviewsSection reviews={reviews} />}
 
-                  {/* Footer mit Avatar + Info */}
-                  <div className='mt-auto'>
-                    <div className='flex items-center mb-3'>
-                      {review.bildUrl ? (
-                        <Image
-                          src={review.bildUrl}
-                          alt={review.name}
-                          width={40}
-                          height={40}
-                          className='rounded-full mr-3'
-                        />
-                      ) : (
-                        <div className='w-10 h-10 rounded-full bg-gray-300 mr-3' />
-                      )}
-                      <div className='flex flex-col justify-between items-start gap-1'>
-                        <p className='font-semibold leading-tight'>
-                          {review.name}
-                        </p>
-                        <p className='text-xs text-gray-500'>{review.quelle}</p>
-                      </div>
-                    </div>
+        <div className='bg-muted/50 rounded-2xl p-8 md:p-12 mt-16'>
+          <div className='grid lg:grid-cols-2 gap-8'>
+            {/* Linke Seite: Textboxen mit Checkboxen */}
+            <div className='space-y-6'>
+              <div className='bg-white rounded-xl p-6 shadow'>
+                <label className='flex items-center space-x-3'>
+                  <input type='checkbox' className='h-5 w-5 text-primary' />
+                  <span className='text-muted-foreground'>
+                    Option 1: Infos über Gera
+                  </span>
+                </label>
+              </div>
+              <div className='bg-white rounded-xl p-6 shadow'>
+                <label className='flex items-center space-x-3'>
+                  <input type='checkbox' className='h-5 w-5 text-primary' />
+                  <span className='text-muted-foreground'>
+                    Option 2: Sehenswürdigkeiten
+                  </span>
+                </label>
+              </div>
+              <div className='bg-white rounded-xl p-6 shadow'>
+                <label className='flex items-center space-x-3'>
+                  <input type='checkbox' className='h-5 w-5 text-primary' />
+                  <span className='text-muted-foreground'>
+                    Option 3: Unterkunftsmöglichkeiten
+                  </span>
+                </label>
+              </div>
+            </div>
 
-                    {/* Sterne */}
-                    <div className='flex items-center gap-1 text-yellow-400 text-sm mb-1'>
-                      {"★".repeat(review.sterne)}
-                      <span className='text-gray-300'>
-                        {"☆".repeat(5 - review.sterne)}
-                      </span>
-                    </div>
-
-                    {/* Verifiziert Label */}
-                    <p className='bg-emerald-50 px-3 py-1 rounded-full text-xs text-emerald-600 font-medium'>
-                      ✅ Verifizierte {review.quelle} Bewertung
-                    </p>
-                  </div>
+            {/* Rechte Seite: Bilder */}
+            <div className='grid grid-rows-3 gap-4'>
+              <div className='row-span-2 overflow-hidden rounded-xl'>
+                <Image
+                  src={
+                    "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg"
+                  }
+                  alt='Gera Hauptbild'
+                  className='w-full h-full object-cover'
+                />
+              </div>
+              <div className='grid grid-cols-3 gap-4'>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    src={
+                      "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-vacation-apartment-booking-premium-airbnb-booking-fewo-central-thueringen-vacation-pension-wlan-819x1024.jpg.pagespeed.ce.90KjGntYZR.jpg"
+                    }
+                    alt='Kleines Bild 1'
+                    className='w-full h-full object-cover'
+                  />
                 </div>
-              ))}
-            </div>
-
-            <div className='text-center mt-6'>
-              <Link
-                href='/reviews'
-                className='text-primary font-semibold hover:underline'>
-                Alle Bewertungen lesen →
-              </Link>
-            </div>
-          </div>
-        )}
-
-        {/* About text */}
-        <div className='bg-muted/50 rounded-2xl p-8 md:p-12'>
-          <div className='grid lg:grid-cols-2 gap-8 justify-center items-center'>
-            <div>
-              <h3 className='text-2xl md:text-3xl font-bold mb-4'>
-                Übernachten in Gera: Inmitten von Kunst und Kultur
-              </h3>
-              <p className='text-muted-foreground mb-6'>
-                In der umweltfreundlichen Stadt Gera erleben Sie die Magie von
-                Kunst und Kultur aus nächster Nähe.
-              </p>
-              <p className='text-muted-foreground mb-6'>
-                Als Geburtsstadt von Otto Dix, einem der berühmtesten Künstler
-                und Grafiker des 20. Jahrhunderts, können Sie in dem Otto Dix
-                Geburtshaus etwa 450 Werke des Künstlers bewundern. Seine Werke
-                beeindrucken durch eine breite stilistische Vielfalt.
-              </p>
-              <Button className='p-6 text-white'>
-                <Link href='/blog'>Wichtige Infos</Link>
-              </Button>
-            </div>
-            <div className='aspect-[4/3] overflow-hidden'>
-              <Image
-                src={aboutImg || "/placeholder.svg?height=400&width=500"}
-                alt='Gera city view'
-                width={728}
-                height={408}
-                className='w-full rounded-xl h-full object-cover'
-              />
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    src={
+                      "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-mieten-buchen-fewo-monteurzimmer-hotel-alternative-07545-jasmin-maria.jpg.pagespeed.ce.cTPQgVrEXu.jpg"
+                    }
+                    alt='Kleines Bild 2'
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    src={
+                      "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohung-gera-07545-markt-zentrum-stadt-mieten-thueringen-fewo-unterkunft-kurzurlaub-692x1024.jpg.pagespeed.ce.NX4hCQRGPF.jpg"
+                    }
+                    alt='Kleines Bild 3'
+                    className='w-full h-full object-cover'
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -197,7 +207,7 @@ export async function About() {
                   <p className='text-lg font-semibold mb-6'>{upsell.preis}</p>
                 )}
                 <Button className='p-6 text-white'>
-                  <Link href={upsell.ctaLink || "/"}></Link>
+                  <Link href={upsell.ctaLink || "/"}>{upsell.ctaText}</Link>
                 </Button>
               </div>
               {upsell.imageUrl && (

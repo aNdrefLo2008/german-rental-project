@@ -5,6 +5,9 @@ import {BookingIframe} from "@/components/BookingIframe"
 import Reviews from "@/components/reviews"
 import {client} from "@/sanity/lib/client"
 import {reviewsQuery} from "@/sanity/lib/queries"
+import ReviewsSection from "@/components/ReviewSection"
+import {Button} from "@/components/ui/button"
+import {ArrowLeft} from "lucide-react"
 
 export default async function BookingPage() {
   const reviews = await client.fetch(reviewsQuery)
@@ -12,13 +15,12 @@ export default async function BookingPage() {
   return (
     <main className='container mx-auto px-4 py-12'>
       {/* Back Button */}
-      <div className='mb-6'>
-        <Link
-          href='/'
-          className='inline-block rounded-lg border text-black p-3 shadow text-sm hover:bg-gray-50 transition duration-200'>
+      <Button variant='ghost' asChild className='mb-10'>
+        <Link href='/'>
+          <ArrowLeft className='h-4 w-4 mr-2' />
           Zurück zur Startseite
         </Link>
-      </div>
+      </Button>
 
       <h1 className='text-3xl font-bold mb-6'>Verfügbarkeit prüfen</h1>
       <p className='mb-8 text-gray-600'>
@@ -38,7 +40,7 @@ export default async function BookingPage() {
         {/* Reviews (compact sidebar variant) */}
         <aside className='w-full lg:flex-[1] lg:max-w-xl'>
           <div className='border rounded-2xl shadow-md p-4'>
-            <Reviews reviews={reviews} variant='sidebar' limit={18} />
+            <ReviewsSection reviews={reviews} variant='sidebar' limit={18} />
           </div>
         </aside>
       </div>

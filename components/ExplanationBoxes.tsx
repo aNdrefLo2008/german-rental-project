@@ -4,7 +4,7 @@ import React from "react"
 
 function ExplanationBoxes() {
   return (
-    <section className='py-16 bg-[#3B4AFF]'>
+    <section className='py-16 bg-gradient-to-r from-[#3B4AFF] to-[#1b6584]'>
       <div className='max-w-full 2xl:mx-20 mx-auto px-4 text-center'>
         <h2 className='text-3xl md:text-4xl font-semibold mb-16 text-gray-100'>
           So funktioniert unser Buchungssystem
