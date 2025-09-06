@@ -7,6 +7,7 @@ import {FaGoogle, FaAirbnb} from "react-icons/fa"
 import {TbBrandBooking} from "react-icons/tb"
 import {motion, AnimatePresence} from "framer-motion"
 import Image from "next/image"
+import {Check} from "lucide-react"
 
 type Review = {
   _id: string
@@ -180,8 +181,10 @@ function ReviewCard({review, compact}: {review: Review; compact?: boolean}) {
         </div>
 
         {/* Verifiziert */}
-        <span className='inline-flex px-3 py-1 rounded-full bg-emerald-50 items-center gap-2'>
-          ✅
+        <span className='inline-flex px-3 py-2 rounded-full bg-emerald-50 items-center gap-2'>
+          <div className='bg-emerald-400 rounded-full p-1'>
+            <Check className='font-bold h-3 w-3 text-white' />
+          </div>
           <span className='text-xs text-emerald-600 font-medium'>
             Verifizierte {review.quelle} Bewertung
           </span>

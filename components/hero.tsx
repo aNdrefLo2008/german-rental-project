@@ -84,21 +84,21 @@ export function Hero() {
                 alt='Apartment 1'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-bad-badezimmer-dusche-neu-handtuecher-bettwaesche-inklusive-reinigung-sauber-sehr-gute-bewertungen-erfahrung-austattung-top-neu-renoviert-1024x683.jpg'
                 alt='Apartment 2'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-07-at-10.58.30-1024x768.jpeg'
                 alt='Apartment 3'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
             </div>
 
@@ -109,21 +109,21 @@ export function Hero() {
                 alt='Booking Award'
                 width={400}
                 height={400}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[250px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-mieten-buchen-maria-zentrum-07545-thueringen-fewo--1024x683.jpg'
                 alt='Apartment 4'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2023/04/grosse-ferienwohnung-in-gera-4-personen-4-betten-airbnb-unterkunft-uebernachten-1024x683.png.pagespeed.ce.AkvDqqZ1be.png'
                 alt='Apartment 5'
                 width={250}
                 height={180}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[300px]'
+                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
             </div>
           </div>

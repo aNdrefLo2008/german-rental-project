@@ -3,7 +3,7 @@
 import {client} from "@/sanity/lib/client"
 import {upsellQuery, reviewsQuery} from "@/sanity/lib/queries"
 import {Card, CardContent} from "@/components/ui/card"
-import {Shield, Clock, Heart, Award} from "lucide-react"
+import {Shield, Clock, Heart, Award, Check} from "lucide-react"
 import ReviewsSection from "./ReviewSection"
 import Image from "next/image"
 import Link from "next/link"
@@ -122,10 +122,10 @@ export default async function About() {
               <div className='col-span-3 overflow-hidden rounded-xl'>
                 <Image
                   width={1200}
-                  height={800}
+                  height={1200}
                   src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg'
                   alt='Gera Hauptbild'
-                  className='aspect-square w-full h-full object-cover'
+                  className='w-full h-full object-cover aspect-square md:aspect-[4/5] lg:aspect-[5/4]'
                 />
               </div>
               <div className='col-span-1 grid grid-rows-3 gap-4'>
@@ -161,10 +161,10 @@ export default async function About() {
 
             {/* Rechte Seite: Textbox mit Titel, Paragraphen, Checkboxen und Button */}
             <div className='space-y-6'>
-              <h2 className='text-2xl font-bold'>
+              <h2 className='md:text-4xl text-3xl font-bold'>
                 Übernachten in Gera: Inmitten von Kunst und Kultur
               </h2>
-              <p className='text-muted-foreground'>
+              <p className='text-muted-foreground font-light'>
                 In der umweltfreundlichen Stadt Gera erleben Sie die Magie von
                 Kunst und Kultur aus nächster Nähe. Als Geburtsstadt von Otto
                 Dix, einem der berühmtesten Künstler und Grafiker des 20.
@@ -173,51 +173,41 @@ export default async function About() {
                 eine breite stilistische Vielfalt.
               </p>
 
-              {/* Checkboxen, statisch */}
-              <div className='bg-white rounded-xl p-4 shadow'>
-                <label className='flex items-center space-x-3'>
-                  <input
-                    type='checkbox'
-                    className='h-5 w-5 text-primary'
-                    disabled
-                    checked
-                  />
-                  <span className='font-medium'>
+              {/* Checkboxen, statisch, größer und gleichmäßig */}
+              <div className='space-y-4'>
+                <div className='bg-white rounded-xl p-5 shadow flex items-center'>
+                  <div className='bg-gray-100 rounded-sm border border-gray-300 p-1'>
+                    <Check className='font-medium h-4 w-4 text-gray-600' />
+                  </div>
+                  <span className='ml-4 font-medium'>
                     Gera ist mit ca. 90.000 Einwohnern 3. größte Stadt
                     Thüringens
                   </span>
-                </label>
-              </div>
-              <div className='bg-white rounded-xl p-4 shadow'>
-                <label className='flex items-center space-x-3'>
-                  <input
-                    type='checkbox'
-                    className='h-5 w-5 text-primary'
-                    disabled
-                    checked
-                  />
-                  <span className='font-medium'>
+                </div>
+
+                <div className='bg-white rounded-xl p-5 shadow flex items-center'>
+                  <div className='bg-gray-100 rounded-sm border border-gray-300 p-1'>
+                    <Check className='font-medium h-4 w-4 text-gray-600' />
+                  </div>
+                  <span className='ml-4 font-medium'>
                     Sitz von SRH Hochschule für Gesundheit
                   </span>
-                </label>
-              </div>
-              <div className='bg-white rounded-xl p-4 shadow'>
-                <label className='flex items-center space-x-3'>
-                  <input
-                    type='checkbox'
-                    className='h-5 w-5 text-primary'
-                    disabled
-                    checked
-                  />
-                  <span className='font-medium'>
+                </div>
+
+                <div className='bg-white rounded-xl p-5 shadow flex items-center'>
+                  <div className='bg-gray-100 rounded-sm border border-gray-300 p-1'>
+                    <Check className='font-medium h-4 w-4 text-gray-600' />
+                  </div>
+
+                  <span className='ml-4 font-medium'>
                     Reich an leckeren Restaurants, Bars, Fitnessstudios, schönen
                     Parks & Einkaufsmöglichkeiten, einer Schwimmhalle, Kino &
                     vielem mehr
                   </span>
-                </label>
+                </div>
               </div>
 
-              <Button className='p-4 '>
+              <Button className='p-5'>
                 <Link href='/blog'>Hier gehts zur Restaurantempfehlung</Link>
               </Button>
             </div>
