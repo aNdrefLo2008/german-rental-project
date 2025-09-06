@@ -59,14 +59,14 @@ export default function ReviewsSection({
     return typeof limit === "number" ? base.slice(0, limit) : base
   }, [reviews, activeSource, limit])
 
-  const formatDate = (date?: string) => {
+  /*const formatDate = (date?: string) => {
     if (!date) return new Date().toLocaleDateString("de-DE")
     return new Date(date).toLocaleDateString("de-DE", {
       year: "numeric",
       month: "long",
       day: "numeric"
     })
-  }
+  }*/
 
   return (
     <div className='mb-16'>

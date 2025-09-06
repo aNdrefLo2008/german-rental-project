@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import {BookingIframe} from "@/components/BookingIframe"
-import Reviews from "@/components/reviews"
 import {client} from "@/sanity/lib/client"
 import {reviewsQuery} from "@/sanity/lib/queries"
 import ReviewsSection from "@/components/ReviewSection"

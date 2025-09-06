@@ -37,9 +37,6 @@ const features = [
 ]
 
 export default async function About() {
-  const aboutImg: string =
-    "https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg"
-
   const upsell = await client.fetch(upsellQuery)
   const reviews = await client.fetch(reviewsQuery)
 
