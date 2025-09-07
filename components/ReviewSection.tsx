@@ -131,12 +131,13 @@ export default function ReviewsSection({
 
 function ReviewCard({review, compact}: {review: Review; compact?: boolean}) {
   const formatDate = (date?: string) => {
-    if (!date) return new Date().toLocaleDateString("de-DE")
-    return new Date(date).toLocaleDateString("de-DE", {
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    })
+    const d = date ? new Date(date) : new Date()
+
+    const day = d.toLocaleDateString("de-DE", {day: "numeric"})
+    const month = d.toLocaleDateString("de-DE", {month: "long"})
+    const year = d.toLocaleDateString("de-DE", {year: "numeric"})
+
+    return `${day}. ${month}, ${year}`
   }
 
   return (
@@ -145,7 +146,7 @@ function ReviewCard({review, compact}: {review: Review; compact?: boolean}) {
         compact ? "w-full" : "h-full"
       }`}>
       {/* Datum */}
-      <p className='text-sm font-semibold bg-gradient-to-r from-[#5378d6] to-[#e09731] bg-clip-text text-transparent mb-2'>
+      <p className='text-sm font-semibold bg-gradient-to-r from-[#5378d6] to-[#ff9500] bg-clip-text text-transparent mb-2'>
         {formatDate(review.date)}
       </p>
 
@@ -175,17 +176,24 @@ function ReviewCard({review, compact}: {review: Review; compact?: boolean}) {
         </div>
 
         {/* Sterne */}
-        <div className='flex items-center gap-1 text-yellow-400 text-sm mb-2'>
-          {"★".repeat(review.sterne)}
-          <span className='text-gray-300'>{"☆".repeat(5 - review.sterne)}</span>
+        <div className='flex items-center gap-1 mb-2'>
+          {Array.from({length: 5}, (_, i) => (
+            <span
+              key={i}
+              className={
+                i < review.sterne ? "text-yellow-400" : "text-gray-300"
+              }>
+              ★
+            </span>
+          ))}
         </div>
 
         {/* Verifiziert */}
         <span className='inline-flex px-3 py-2 rounded-full bg-emerald-50 items-center gap-2'>
-          <div className='bg-emerald-400 rounded-full p-1'>
+          <div className='bg-emerald-600 rounded-full p-1'>
             <Check className='font-bold h-3 w-3 text-white' />
           </div>
-          <span className='text-xs text-emerald-600 font-medium'>
+          <span className='text-xs text-emerald-500'>
             Verifizierte {review.quelle} Bewertung
           </span>
         </span>

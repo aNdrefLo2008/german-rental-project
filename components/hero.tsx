@@ -1,13 +1,29 @@
 /** @format */
 
+"use client"
+
 import Link from "next/link"
 import {Button} from "@/components/ui/button"
 import {MapPin, Star, Award, Users, House, AlarmClockCheck} from "lucide-react"
 import Image from "next/image"
+import {motion, useScroll, useTransform, useSpring} from "framer-motion"
 
 export function Hero() {
+  // Framer Motion Scroll
+  const {scrollY} = useScroll()
+
+  // Translation für die beiden Bildspalten
+  const rawCol1Y = useTransform(scrollY, [0, 300], [0, 50])
+  const rawCol2Y = useTransform(scrollY, [0, 300], [0, -50])
+
+  // Spring für smooth animation
+  const col1Y = useSpring(rawCol1Y, {stiffness: 50, damping: 20})
+  const col2Y = useSpring(rawCol2Y, {stiffness: 50, damping: 20})
+
   return (
-    <section className='-mt-4 relative bg-gradient-to-br from-primary/5 via-background to-secondary/5'>
+    <section
+      id='hero-section'
+      className='-mt-4 relative bg-gradient-to-br from-primary/5 via-background to-secondary/5'>
       <div className='container mx-auto px-4 py-16 md:py-24'>
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           {/* LEFT col: text + ctas */}
@@ -78,14 +94,18 @@ export function Hero() {
           {/* RIGHT col: images */}
           <div className='grid grid-cols-2 gap-x-2 sm:gap-x-4 -mt-8 justify-center'>
             {/* col1 */}
-            <div className='space-y-3 flex flex-col items-end w-full'>
-              <Image
-                src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnungen-gera-innenstadt-jasmin-fewo-urlaub-deutsche-pension-online-gaestewohnung.jpg'
-                alt='Apartment 1'
-                width={250}
-                height={180}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
-              />
+            <motion.div
+              style={{y: col1Y}}
+              className='space-y-3 flex flex-col items-end w-full'>
+              <Link href='/apartments/ferienwohnung-jasmin'>
+                <Image
+                  src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnungen-gera-innenstadt-jasmin-fewo-urlaub-deutsche-pension-online-gaestewohnung.jpg'
+                  alt='Apartment 1'
+                  width={250}
+                  height={180}
+                  className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
+                />
+              </Link>
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-bad-badezimmer-dusche-neu-handtuecher-bettwaesche-inklusive-reinigung-sauber-sehr-gute-bewertungen-erfahrung-austattung-top-neu-renoviert-1024x683.jpg'
                 alt='Apartment 2'
@@ -93,17 +113,21 @@ export function Hero() {
                 height={180}
                 className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
-              <Image
-                src='https://ferienwohnungen-gera.de/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-07-at-10.58.30-1024x768.jpeg'
-                alt='Apartment 3'
-                width={250}
-                height={180}
-                className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
-              />
-            </div>
+              <Link href='/apartments/ferienwohnung-vivien'>
+                <Image
+                  src='https://ferienwohnungen-gera.de/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-07-at-10.58.30-1024x768.jpeg'
+                  alt='Apartment 3'
+                  width={250}
+                  height={180}
+                  className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
+                />
+              </Link>
+            </motion.div>
 
             {/* col2 */}
-            <div className='space-y-3 mt-16 flex flex-col items-start w-full'>
+            <motion.div
+              style={{y: col2Y}}
+              className='space-y-3 mt-16 flex flex-col items-start w-full'>
               <Image
                 src='https://ferienwohnungen-gera.de/wp-content/uploads/2025/01/booking-award-ferienwohnungen-gera--1024x1024.png'
                 alt='Booking Award'
@@ -125,7 +149,7 @@ export function Hero() {
                 height={180}
                 className='rounded-xl object-cover w-full max-w-[220px] md:max-w-[260px] lg:max-w-[280px]'
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

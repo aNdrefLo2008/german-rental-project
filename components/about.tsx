@@ -3,7 +3,18 @@
 import {client} from "@/sanity/lib/client"
 import {upsellQuery, reviewsQuery} from "@/sanity/lib/queries"
 import {Card, CardContent} from "@/components/ui/card"
-import {Shield, Clock, Heart, Award, Check} from "lucide-react"
+import {
+  Shield,
+  Clock,
+  Heart,
+  Award,
+  Car,
+  BedDouble,
+  Users,
+  Home,
+  FileText,
+  Check
+} from "lucide-react"
 import ReviewsSection from "./ReviewSection"
 import Image from "next/image"
 import Link from "next/link"
@@ -11,16 +22,46 @@ import {Button} from "./ui/button"
 
 const features = [
   {
+    icon: Car,
+    title: "Kostenlose Parkmöglichkeiten",
+    description:
+      "Immer max. 5 Minuten fußläufig oder direkt vor der Unterkunft verfügbar."
+  },
+  {
+    icon: BedDouble,
+    title: "Frische Bettwäsche & Handtücher",
+    description:
+      "Inklusive, mit Zwischenreinigung alle 14 Tage (auf Wunsch auch öfter)."
+  },
+  {
     icon: Shield,
     title: "Sicher & geschützt",
     description:
-      "Alle unsere Apartments werden professionell gereinigt und zwischen den Aufenthalten desinfiziert."
+      "Alle Wohnungen werden professionell gereinigt und zwischen den Aufenthalten gründlich desinfiziert."
   },
   {
-    icon: Clock,
-    title: "24/7 Support",
+    icon: Users,
+    title: "Persönlicher Service",
     description:
-      "Unser Team steht rund um die Uhr zur Verfügung, um bei Fragen oder Anliegen zu helfen."
+      "Unser deutschsprachiges Team in Gera mit vier Mitarbeitern ist nahezu rund um die Uhr für Sie erreichbar."
+  },
+  {
+    icon: Award,
+    title: "Qualität garantiert",
+    description:
+      "Jedes Apartment wird sorgfältig ausgewählt, nach hohen Standards eingerichtet und laufend gepflegt."
+  },
+  {
+    icon: Home,
+    title: "Vollständig ausgestattete Wohnungen",
+    description:
+      "Ideal auch für Langzeitaufenthalte – komfortabel und praktisch eingerichtet."
+  },
+  {
+    icon: FileText,
+    title: "Transparente Abrechnung",
+    description:
+      "Sie erhalten eine Rechnung mit ausgewiesener Umsatzsteuer in Höhe von 7 % (Stand: 2025)."
   },
   {
     icon: Heart,
@@ -29,10 +70,10 @@ const features = [
       "Wir geben Insider-Tipps und Empfehlungen, damit Sie Gera wie ein Einheimischer erleben können."
   },
   {
-    icon: Award,
-    title: "Qualität garantiert",
+    icon: Clock,
+    title: "24/7 Support",
     description:
-      "Jedes Apartment wird sorgfältig ausgewählt und nach unseren hohen Standards gepflegt."
+      "Unser Team steht rund um die Uhr zur Verfügung, um bei Fragen oder Anliegen zu helfen."
   }
 ]
 
@@ -53,38 +94,6 @@ export default async function About() {
             genau, worauf es bei einem komfortablen Aufenthalt ankommt – egal ob
             für ein Wochenende, mehrere Wochen oder sogar 6–12 Monate.
           </p>
-
-          <ul className='text-lg text-muted-foreground max-w-2xl mx-auto mb-6 list-disc list-inside space-y-2'>
-            <li>
-              Kostenlose Parkmöglichkeiten – max. 5 Minuten fußläufig oder
-              direkt vor der Unterkunft
-            </li>
-            <li>
-              Frische Bettwäsche &amp; Handtücher inklusive, mit
-              Zwischenreinigung alle 14 Tage (auf Wunsch öfter)
-            </li>
-            <li>
-              Sicher &amp; geschützt – alle Wohnungen werden professionell
-              gereinigt und gründlich desinfiziert
-            </li>
-            <li>
-              Persönlicher Service – unser deutschsprachiges Team in Gera ist
-              nahezu rund um die Uhr erreichbar
-            </li>
-            <li>
-              Qualität garantiert – sorgfältig ausgewählte Apartments,
-              eingerichtet nach hohen Standards
-            </li>
-            <li>
-              Vollständig ausgestattete Wohnungen, auch für Langzeitaufenthalte
-              geeignet
-            </li>
-            <li>
-              Transparente Abrechnung – Rechnung mit ausgewiesener Umsatzsteuer
-              <br />
-              (7 %, Stand: 2025)
-            </li>
-          </ul>
 
           <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
             Damit vereinen unsere Ferienwohnungen die Flexibilität einer eigenen

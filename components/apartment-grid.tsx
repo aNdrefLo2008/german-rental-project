@@ -4,7 +4,7 @@ import Link from "next/link"
 import {Button} from "@/components/ui/button"
 import {Card, CardContent, CardFooter, CardHeader} from "@/components/ui/card"
 import {Badge} from "@/components/ui/badge"
-import {Users, Bed, Bath} from "lucide-react"
+import {Users, Bed, Bath, Check} from "lucide-react"
 import {client} from "@/sanity/lib/client"
 import {allApartmentsQuery} from "@/sanity/lib/queries"
 import Image from "next/image"
@@ -43,7 +43,7 @@ export async function ApartmentGrid() {
       {apartments.map((apartment: ApartmentDetailProps) => (
         <Card
           key={apartment._id}
-          className='overflow-hidden hover:shadow-lg transition-shadow'>
+          className='overflow-hidden hover:shadow-lg transition-shadow flex flex-col'>
           <CardHeader className='p-0'>
             <div className='relative w-full aspect-2/1'>
               <Image
@@ -58,7 +58,8 @@ export async function ApartmentGrid() {
             </div>
           </CardHeader>
 
-          <CardContent className='px-6'>
+          {/* Content füllt automatisch den Rest */}
+          <CardContent className='px-6 flex-1 flex flex-col'>
             <h3 className='text-xl font-semibold mb-2'>{apartment.title}</h3>
             <p className='text-muted-foreground mb-4'>
               {shortenDescription(apartment.beschreibung)}
@@ -79,11 +80,19 @@ export async function ApartmentGrid() {
               </div>
             </div>
 
-            <div className='flex flex-wrap gap-2'>
-              {apartment.ausstattung?.slice(0, 3).map((item: string) => (
-                <Badge key={item} variant='secondary' className='text-xs'>
-                  {item}
-                </Badge>
+            {/* Ausstattung → flex-grow:0, bleibt oben */}
+            <div className='flex flex-wrap gap-2 mt-auto'>
+              {apartment.ausstattung.slice(0, 3).map((item: string) => (
+                <div
+                  className='bg-gray-50 p-2 rounded-xl flex items-center'
+                  key={item}>
+                  <div className='bg-gray-white rounded-sm border border-gray-300 p-1'>
+                    <Check className='font-medium h-4 w-4 text-gray-400' />
+                  </div>
+                  <span className='ml-4 font-medium text-sm text-gray-600'>
+                    {item}
+                  </span>
+                </div>
               ))}
             </div>
           </CardContent>
