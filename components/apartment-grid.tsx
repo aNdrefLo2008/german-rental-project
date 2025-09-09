@@ -39,7 +39,7 @@ export async function ApartmentGrid() {
     await client.fetch(allApartmentsQuery)
 
   return (
-    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+    <div className='grid md:grid-cols-2 xl:grid-cols-3 gap-8'>
       {apartments.map((apartment: ApartmentDetailProps) => (
         <Card
           key={apartment._id}
@@ -82,7 +82,7 @@ export async function ApartmentGrid() {
 
             {/* Ausstattung → flex-grow:0, bleibt oben */}
             <div className='flex flex-wrap gap-2 mt-auto'>
-              {apartment.ausstattung.slice(0, 3).map((item: string) => (
+              {apartment.ausstattung.map((item: string) => (
                 <div
                   className='bg-gray-50 p-2 rounded-xl flex items-center'
                   key={item}>
