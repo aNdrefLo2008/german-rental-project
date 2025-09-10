@@ -89,13 +89,13 @@ export default async function About() {
           <h2 className='text-3xl md:text-4xl font-bold mb-6'>
             Ihre Vorteile als Geschäftskunde & Privatgast bei uns
           </h2>
-          <p className='text-lg text-muted-foreground max-w-2xl mx-auto mb-6'>
+          <p className='text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-6'>
             Seit 2021 betreiben wir unsere Ferienwohnungen in Gera und wissen
             genau, worauf es bei einem komfortablen Aufenthalt ankommt – egal ob
             für ein Wochenende, mehrere Wochen oder sogar 6–12 Monate.
           </p>
 
-          <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+          <p className='text-base md:text-lg text-muted-foreground max-w-2xl mx-auto'>
             Damit vereinen unsere Ferienwohnungen die Flexibilität einer eigenen
             Unterkunft mit dem Komfort eines Hotels – genau das, was
             Geschäftsreisende und Privatgäste in Gera suchen.
