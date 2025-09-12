@@ -148,9 +148,123 @@ export default function AboutClient({upsell, reviews}: Props) {
         </div>
 
         {/* Reviews */}
-        {reviews?.length > 0 && <ReviewsSection reviews={reviews} />}
+        {reviews?.length > 0 && (
+          <motion.div
+            variants={fadeInUp}
+            initial='hidden'
+            whileInView='show'
+            viewport={{once: true, amount: 0.2}}>
+            <ReviewsSection reviews={reviews} />
+          </motion.div>
+        )}
 
-        {/* … hier den restlichen Animations-Code wie im vorherigen Beispiel lassen … */}
+        {/* Text + Bilder Sektion */}
+        <motion.div
+          variants={fadeInUp}
+          initial='hidden'
+          whileInView='show'
+          viewport={{once: true, amount: 0.2}}
+          className='bg-muted/50 rounded-2xl p-8 md:p-12 mt-16'>
+          <div className='grid lg:grid-cols-2 gap-8'>
+            {/* Bilder (links) */}
+            <motion.div
+              variants={fadeInLeft}
+              initial='hidden'
+              whileInView='show'
+              viewport={{once: true, amount: 0.2}}
+              className='grid grid-cols-4 gap-4'>
+              <div className='col-span-3 overflow-hidden rounded-xl'>
+                <Image
+                  width={1200}
+                  height={1200}
+                  src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-unterkunft-wohung-ferien-urlaub-moebliert-wlan-zentrum-07545-guenstig-buchen-mieten-819x1024.jpg.pagespeed.ce.9vj7uj4Rr_.jpg'
+                  alt='Gera Hauptbild'
+                  className='w-full h-full object-cover aspect-square md:aspect-[4/5] lg:aspect-[5/4]'
+                />
+              </div>
+              <div className='col-span-1 grid grid-rows-3 gap-4'>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    width={400}
+                    height={400}
+                    src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/gera-vacation-apartment-booking-premium-airbnb-booking-fewo-central-thueringen-vacation-pension-wlan-819x1024.jpg.pagespeed.ce.90KjGntYZR.jpg'
+                    alt='Kleines Bild 1'
+                    className='aspect-square w-full h-full object-cover'
+                  />
+                </div>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    width={400}
+                    height={400}
+                    src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohnung-gera-mieten-buchen-fewo-monteurzimmer-hotel-alternative-07545-jasmin-maria.jpg.pagespeed.ce.cTPQgVrEXu.jpg'
+                    alt='Kleines Bild 2'
+                    className='aspect-square w-full h-full object-cover'
+                  />
+                </div>
+                <div className='overflow-hidden rounded-xl'>
+                  <Image
+                    width={400}
+                    height={400}
+                    src='https://ferienwohnungen-gera.de/wp-content/uploads/2022/11/ferienwohung-gera-07545-markt-zentrum-stadt-mieten-thueringen-fewo-unterkunft-kurzurlaub-692x1024.jpg.pagespeed.ce.NX4hCQRGPF.jpg'
+                    alt='Kleines Bild 3'
+                    className='aspect-square w-full h-full object-cover'
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Text (rechts) */}
+            <motion.div
+              variants={fadeInRight}
+              initial='hidden'
+              whileInView='show'
+              viewport={{once: true, amount: 0.2}}
+              className='space-y-6'>
+              <h2 className='md:text-4xl text-3xl font-bold'>
+                Übernachten in Gera: Inmitten von Kunst und Kultur
+              </h2>
+              <p className='text-muted-foreground font-light'>
+                In der umweltfreundlichen Stadt Gera erleben Sie die Magie von
+                Kunst und Kultur aus nächster Nähe. Als Geburtsstadt von Otto
+                Dix …
+              </p>
+
+              {/* Checkboxen */}
+              <div className='space-y-4'>
+                <div className='bg-white rounded-xl p-5 shadow flex items-center'>
+                  <div className='bg-gray-100 rounded-sm border border-gray-300 p-1'>
+                    <Check className='font-medium h-4 w-4 text-gray-600' />
+                  </div>
+                  <span className='ml-4 font-medium'>
+                    Gera ist mit ca. 90.000 Einwohnern 3. größte Stadt
+                    Thüringens
+                  </span>
+                </div>
+                <div className='bg-white rounded-xl p-5 shadow flex items-center'>
+                  <div className='bg-gray-100 rounded-sm border border-gray-300 p-1'>
+                    <Check className='font-medium h-4 w-4 text-gray-600' />
+                  </div>
+                  <span className='ml-4 font-medium'>
+                    Sitz von SRH Hochschule für Gesundheit
+                  </span>
+                </div>
+                <div className='bg-white rounded-xl p-5 shadow flex items-center'>
+                  <div className='bg-gray-100 rounded-sm border border-gray-300 p-1'>
+                    <Check className='font-medium h-4 w-4 text-gray-600' />
+                  </div>
+                  <span className='ml-4 font-medium'>
+                    Reich an Restaurants, Bars, Fitnessstudios, Parks,
+                    Einkaufsmöglichkeiten & mehr
+                  </span>
+                </div>
+              </div>
+
+              <Button className='p-5'>
+                <Link href='/blog'>Hier gehts zur Restaurantempfehlung</Link>
+              </Button>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
