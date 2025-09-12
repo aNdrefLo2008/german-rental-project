@@ -30,15 +30,7 @@ type Review = {
   date?: string
 }
 
-type Upsell = {
-  title: string
-  description: string
-  imageUrl?: string
-  link?: string
-}
-
 type Props = {
-  upsell: Upsell
   reviews: Review[]
 }
 
@@ -115,7 +107,7 @@ const fadeInRight: Variants = {
   show: {opacity: 1, x: 0, transition: {duration: 0.8, ease: "easeOut"}}
 }
 
-export default function AboutClient({upsell, reviews}: Props) {
+export default function AboutClient({reviews}: Props) {
   return (
     <section className='py-16'>
       <div className='container mx-auto px-4'>
