@@ -1,7 +1,19 @@
 /* @format */
+"use client"
 
 import Link from "next/link"
 import {Button} from "./ui/button"
+import {motion, Variants} from "framer-motion"
+
+const fadeInUp: Variants = {
+  hidden: {opacity: 0, y: 40},
+  show: {opacity: 1, y: 0, transition: {duration: 0.8, ease: "easeOut"}}
+}
+
+const staggerChildren: Variants = {
+  hidden: {},
+  show: {transition: {staggerChildren: 0.2}}
+}
 
 export function CTASection() {
   return (
@@ -20,18 +32,31 @@ export function CTASection() {
       <div className='absolute -bottom-32 left-32 blur-3xl p-20 rounded-full bg-blue-100 mix-blend-overlay' />
 
       {/* Inhalt */}
-      <div className='relative z-10'>
-        <h2 className='text-3xl md:text-4xl font-bold mb-4 text-white'>
+      <motion.div
+        className='relative z-10 flex flex-col items-center'
+        variants={staggerChildren}
+        initial='hidden'
+        whileInView='show'
+        viewport={{once: true, amount: 0.3}}>
+        <motion.h2
+          className='text-3xl md:text-4xl font-bold mb-4 text-white'
+          variants={fadeInUp}>
           Jetzt Ferienwohnung in Gera buchen
-        </h2>
-        <p className='text-gray-200 mb-6 max-w-xl mx-auto'>
+        </motion.h2>
+
+        <motion.p
+          className='text-gray-200 mb-6 max-w-xl mx-auto'
+          variants={fadeInUp}>
           Entdecken Sie jetzt unsere exklusiven Angebote und finden Sie Ihr
           perfektes Zuhause in Gera.
-        </p>
-        <Button className='px-8 py-6' variant='blurred'>
-          <Link href='/booking'>Ferienwohnung Buchen</Link>
-        </Button>
-      </div>
+        </motion.p>
+
+        <div>
+          <Button className='px-8 py-6' variant='blurred'>
+            <Link href='/booking'>Ferienwohnung Buchen</Link>
+          </Button>
+        </div>
+      </motion.div>
     </section>
   )
 }

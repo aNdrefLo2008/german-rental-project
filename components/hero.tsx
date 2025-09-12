@@ -17,8 +17,8 @@ export function Hero() {
   const rawCol2Y = useTransform(scrollY, [0, 300], [0, -50])
 
   // Spring für smooth animation
-  const col1Y = useSpring(rawCol1Y, {stiffness: 120, damping: 18})
-  const col2Y = useSpring(rawCol2Y, {stiffness: 120, damping: 18})
+  const col1Y = useSpring(rawCol1Y, {stiffness: 50, damping: 25, mass: 1.2})
+  const col2Y = useSpring(rawCol2Y, {stiffness: 50, damping: 25, mass: 1.2})
 
   return (
     <section
