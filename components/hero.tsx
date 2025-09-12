@@ -61,13 +61,11 @@ export function Hero() {
                 Ferienwohnung in Gera: Jetzt Buchen
               </motion.h1>
 
-              <motion.p
-                variants={fadeInUp}
-                className='text-base lg:text-lg text-muted-foreground mb-8'>
+              <p className='text-base lg:text-lg text-muted-foreground mb-8'>
                 Buchen Sie jetzt GARANTIERT günstiger als bei Booking, Airbnb &
                 co! Sicher & einfach eine unserer gemütlichen & super
                 ausgestatteten Ferienwohnungen mitten im Zentrum von Gera.
-              </motion.p>
+              </p>
 
               {/* icons */}
               <motion.div
