@@ -20,9 +20,26 @@ import Link from "next/link"
 import {Button} from "./ui/button"
 import {motion, Variants} from "framer-motion"
 
+type Review = {
+  _id: string
+  name: string
+  bewertung: string
+  sterne: number
+  quelle?: string
+  bildUrl?: string
+  date?: string
+}
+
+type Upsell = {
+  title: string
+  description: string
+  imageUrl?: string
+  link?: string
+}
+
 type Props = {
-  upsell: any
-  reviews: any[]
+  upsell: Upsell
+  reviews: Review[]
 }
 
 const features = [
